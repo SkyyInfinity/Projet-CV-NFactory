@@ -11,13 +11,15 @@ $errors = array();
 $sucess = false;
 if (!empty($_POST['submitted'])) {
     // Clean XSS
-    $email        = clean($_POST['email']);
-    $nom          = clean($_POST['nom']);
-    $prenom       = clean($_POST['prenom']);
-    $date         = clean($_POST['date']);
-    $diplome_name = clean($_POST['diplome_name']);
-    $diplome_type = clean($_POST['diplome_type']);
-    $diplome_type = clean($_POST['diplome_duree']);
+    $email           = clean($_POST['email']);
+    $nom             = clean($_POST['nom']);
+    $prenom          = clean($_POST['prenom']);
+    $date            = clean($_POST['date']);
+    $diplome_name    = clean($_POST['diplome_name']);
+    $diplome_type    = clean($_POST['diplome_type']);
+    $diplome_duree   = clean($_POST['diplome_duree']);
+    $apprentissage   = clean($_POST['apprentissage']);
+    $stage           = clean($_POST['stage']);
     // Validation champs
     $errors = emailValidation($errors, $email, 'email');
     $errors = textValid($errors, $nom, 'nom', 2, 50);
@@ -26,6 +28,8 @@ if (!empty($_POST['submitted'])) {
     $errors = textValid($errors, $diplome_name, 'diplome_name', 10, 1000);
     $errors = textValid($errors, $diplome_type, 'diplome_type', 10, 1000);
     $errors = textValid($errors, $diplome_duree, 'diplome_duree', 10, 1000);
+    $errors = textValid($errors, $apprentissage, 'apprentissage', 10, 1000);
+    $errors = textValid($errors, $stage, 'stage', 10, 1000);
     if (count($errors) == 0) {
         // requete ID_user
         //$sql = SELECT id FROM wp_users WHERE id = 1;
