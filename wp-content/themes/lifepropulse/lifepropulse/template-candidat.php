@@ -5,8 +5,6 @@ Template Name: candidat
 get_header();
 ?>
 <?php
-// include('inc/pdo.php');
-include('inc/func.php');
 $errors = array();
 $sucess = false;
 if (!empty($_POST['submitted'])) {
@@ -31,8 +29,8 @@ if (!empty($_POST['submitted'])) {
         //$sql = SELECT id FROM wp_users WHERE id = 1;
         //
         //  insertion en BDD 
-        $sql = "INSERT INTO diplome (cv_id, date, diplome_name, diplome_type, etablissement, diplome_duree, apprentissage, stage) 
-        VALUES ('$cv_id', '$date', '$diplome_name', '$diplome_type', '$etablissement', '$diplome_duree', '$apprentissage', '$stage')";
+        $sql = "INSERT INTO diplome VALUES 
+        (:cv_id,NOW(),:diplome_name,:diplome_type,:etablissement,:diplome_duree,:apprentissage,:stage)";
         $query->bindValue(':date', $date, PDO::PARAM_INT);
         $query->bindValue(':diplome_name', $diplome_name, PDO::PARAM_STR);
         $query->bindValue(':diplome_type', $diplome_type, PDO::PARAM_STR);
@@ -49,49 +47,90 @@ if (!empty($_POST['submitted'])) {
 ?>
 
 
+
 <div class="wrap2">
     <section id="formulaire">
-
         <form id="formcv" action="" method="POST">
+            <!-- id -->
             <div class="champform">
-                <input type="text" name="firstname" placeholder="Votre prénom" value="">
-                <input type="text" name="lastname" placeholder="Votre nom" value="">
+                <label for="">Votre nom </label>
+                <input type="text" name="firstname" placeholder="Votre prénom" value="<?= (!empty($_POST['firstname'])) ? $_POST['firstname'] : '' ?>">
+                <label for="">Votre prénom </label>
+                <input type="text" name="lastname" placeholder="Votre nom" value="<?= (!empty($_POST['lastname'])) ? $_POST['lastname'] : '' ?>">
+                <label for="">Votre email </label>
                 <input type="mail" name="email" placeholder="Votre email" value="">
                 <!-- <input type="date" name="birthdate" placeholder="Votre date de naissance" value=""> -->
             </div>
+            <!-- champs diplômes -->
             <div class="champform">
-                <label for="Formation"></label>
-                <input type="text" name="Formation" placeholder="" value="">
+                <label for="">Nom du diplôme </label>
+                <textarea name="diplome_name" placeholder=""></textarea>
+                <label for="">Type du diplôme </label>
+                <textarea name="type" placeholder=""></textarea>
+                <label for="">Date du diplôme </label>
                 <input type="date" name="date" placeholder="" value="">
-                <input type="text" name="Nom de la formation" placeholder="" value="">
-                <textarea name="" placeholder="">
-                <input type="text" name="Type de la formation" placeholder="" value="">
-                <textarea name="formations" placeholder="">
-                <input type="text" name="Etablissement" placeholder="" value="">
-                <textarea name="formations" placeholder="">
-                <input type="text" name="Durée de la formation" placeholder="" value="">
-                <textarea name="formations" placeholder="">
+                <label for="">Etablissement </label>
+                <input type="text" name="etablissement" placeholder="" value="">
+                <label for="">Apprentissage </label>
+                <select name="apprentissage" id="">
+                    <option value="" hidden> --Choisissez-- </option>
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                </select>
+                <label for="">Stage </label>
+                <select name="stage" id="">
+                    <option value="" hidden> --Choisissez-- </option>
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                </select>
             </div>
-            <div>
-                <input type="text" name="" placeholder="Vos diplomes" value="">
+            <!-- champs expériences pro -->
+            <div class="champform">
+                <label for="">Nom du poste </label>
+                <textarea name="nom" placeholder=""></textarea>
+                <label for="">Date de l'expérience </label>
                 <input type="date" name="date" placeholder="" value="">
-                <textarea name="diplomes" placeholder="Vos diplomes">
+                <label for="">Durée de l'expérience </label>
+                <textarea name="duree" placeholder=""></textarea>
+                <label for="">Entreprise </label>
+                <input type="text" name="entreprise" placeholder="" value="">
+                <label for="">Missions demandées</label>
+                <textarea name="missions" placeholder=""></textarea>
             </div>
-            <div>
-                <input type="text" name="" placeholder="Vos expériences professionnelles" value="">
+            <!-- champs formations -->
+            <div class="champform">
+                <label for="">Nom de la formation </label>
+                <textarea name="nom" placeholder=""></textarea>
+                <label for="">Type de formation </label>
+                <textarea name="type" placeholder=""></textarea>
+                <label for="">Date de la formation </label>
                 <input type="date" name="date" placeholder="" value="">
-                <textarea name="experiences" placeholder="Vos expériences professionnelles">
+                <label for="">Durée de la formation </label>
+                <textarea name="duree" placeholder=""></textarea>
+                <label for="">Etablissement </label>
+                <input type="text" name="etablissement" placeholder="" value="">
             </div>
-            <div>
-                <input type="text" name="competences" placeholder="Vos compétences" value="">
-                <textarea name="competences" placeholder="Vos compétences">
+            <!-- champs compétences -->
+            <div class="champform">
+                <label for="">Type de compétence </label>
+                <textarea name="type" placeholder=""></textarea>
+                <label for="">Nom de compétence </label>
+                <textarea name="nom" placeholder=""></textarea>
+                <label for="">Niveau de compétence </label>
+                <textarea name="niveau" placeholder=""></textarea>
             </div>
-            <textarea name="loisirs" placeholder="Vos loisirs">
-
+            <!-- champs loisirs -->
+            <div class="champform">
+                <label for="">Nom du loisir </label>
+                <textarea name="nom" placeholder=""></textarea>
+                <label for="">Type de loisir </label>
+                <textarea name="type" placeholder=""></textarea>
+                <label for="">Niveau </label>
+                <textarea name="niveau" placeholder=""></textarea>
+            </div>
             <input type="submit" name="submit" class="btn" value="Valider">
         </form>
     </section>
 </div>
-
 <?php
 get_footer();

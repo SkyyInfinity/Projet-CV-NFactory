@@ -24,7 +24,7 @@
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'lifepropulse' ), 'lifepropulse', '<a href="http://underscores.me/">Underscores.me</a>' );
 				?>
-		</div><!-- .site-info -->
+		</div><!-- .site-info -->		
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
