@@ -2,7 +2,11 @@
 # This file is distributed under the same license as the WordPress - 5.6.x - Development - Administration - Network Admin package.
 msgid ""
 msgstr ""
+<<<<<<< HEAD
+"PO-Revision-Date: 2021-02-09 08:30:41+0000\n"
+=======
 "PO-Revision-Date: 2021-01-05 15:25:27+0000\n"
+>>>>>>> 83835018dc2a591af1537b4a0c8192f6312a3cac
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -230,7 +234,11 @@ msgstr "%1$s par %2$s"
 
 #: wp-admin/network/site-new.php:219
 msgid "Only lowercase letters (a-z), numbers, and hyphens are allowed."
+<<<<<<< HEAD
+msgstr "Uniquement des lettres minuscules non accentuées (a-z), des chiffres (0-9), et des traits d’union (-) sont autorisés."
+=======
 msgstr "Seuls les lettres minuscules (a-z), les nombres, et les traits d’union sont autorisés."
+>>>>>>> 83835018dc2a591af1537b4a0c8192f6312a3cac
 
 #. translators: %s: wp-config.php
 #: wp-admin/includes/network.php:540
