@@ -38,4 +38,4 @@ function emailValidation($err,$mail,$key)
         $err[$key] = 'Veuillez renseigner ce champ';
     }
     return $err;
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                              
