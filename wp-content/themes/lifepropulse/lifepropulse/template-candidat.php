@@ -31,7 +31,8 @@ if (!empty($_POST['submitted'])) {
         //  insertion en BDD 
         $sql = "INSERT INTO diplome VALUES 
         (:cv_id,NOW(),:diplome_name,:diplome_type,:etablissement,:diplome_duree,:apprentissage,:stage)";
-        $query->bindValue(':date', $date, PDO::PARAM_INT);
+        $query->bindValue(':cv_id', $cv_id, PDO::PARAM_INT);
+        $query->bindValue('NOW()', $date, PDO::PARAM_INT);
         $query->bindValue(':diplome_name', $diplome_name, PDO::PARAM_STR);
         $query->bindValue(':diplome_type', $diplome_type, PDO::PARAM_STR);
         $query->bindValue(':etablissement', $etablissement, PDO::PARAM_STR);
@@ -43,10 +44,7 @@ if (!empty($_POST['submitted'])) {
     }
 }
 
-
 ?>
-
-
 
 <div class="wrap2">
     <section id="formulaire">
@@ -73,15 +71,15 @@ if (!empty($_POST['submitted'])) {
                 <input type="text" name="etablissement" placeholder="" value="">
                 <label for="">Apprentissage </label>
                 <select name="apprentissage" id="">
-                    <option value="" hidden> --Choisissez-- </option>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="" <?= (!empty($_POST['apprentissage'])) ? '' : 'selected' ?>hidden> --Choisissez-- </option>
+                    <option value="oui"<?= (!empty($_POST['apprentissage']) && $_POST['apprentissage'] == 'oui') ? 'selected' : '' ?>>Oui</option>
+                    <option value="non"<?= (!empty($_POST['apprentissage']) && $_POST['apprentissage'] == 'non') ? 'selected' : '' ?>>Non</option>
                 </select>
                 <label for="">Stage </label>
                 <select name="stage" id="">
-                    <option value="" hidden> --Choisissez-- </option>
-                    <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="" <?= (!empty($_POST['stage'])) ? '' : 'selected' ?> hidden> --Choisissez-- </option>
+                    <option value="oui" <?= (!empty($_POST['stage']) && $_POST['stage'] == 'oui') ? 'selected' : '' ?>>Oui</option>
+                    <option value="non" <?= (!empty($_POST['stage']) && $_POST['stage'] == 'non') ? 'selected' : '' ?>>Non</option>
                 </select>
             </div>
             <!-- champs expériences pro -->
