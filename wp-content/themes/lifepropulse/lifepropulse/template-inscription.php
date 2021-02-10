@@ -1,0 +1,78 @@
+<?php
+/*
+Template Name: inscription
+*/
+//Si USER est déja connecter alors redirection sur profil
+$user = wp_get_current_user();
+if($user->ID != 0){
+    header('location:profil');
+}
+
+$error = false;
+if(!empty($_POST)){
+    $d = $_POST;
+    if($d['user_password'] != $d['user_password2']){
+        $error = 'Les mots de passe ne correspondent pas';
+    }else{
+        if(!is_email($d['user_email'])){
+            $error = 'Adresse email incorrect'; 
+        }else{
+            $name = $d['user_prenom'] . ' ' . $d['user_nom'];
+            $user = wp_insert_user(array(
+                'display_name' => $name,
+                'user_pass' => $d['user_password'],
+                'user_email' => $d['user_email'],
+                'user_login' => $d['user_email'],
+                'user_registered' => date('Y-m-d H:i:s')
+            ));
+            if(is_wp_error($user)){
+                $error = $user->get_error_message();
+            }else{
+                $msg = 'Vous étes inscrit bienvenue';
+                $headers = 'From : '.get_option('admin_email').'\r\n';
+                wp_mail($d['user_email'], 'Inscription réussie', $msg, $headers);
+                $d = array();
+                wp_signon($user);
+                header('Location: profil');
+            }
+        }
+    }
+}
+
+get_header();
+?>
+
+<section>
+    <h1>Connexion / User</h1>
+
+    <?php if ($error):?>
+        <div class="error">
+            <?php echo $error; ?>
+        </div>
+    <?php endif ?>
+
+    <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+
+        <label for="user_prenom">Prenom</label>
+        <input type="text" name="user_prenom" id="user_prenom" maxlength="50" value="<?php echo isset($d['user_prenom']) ? $d['user_prenom'] : ''; ?>" required>
+
+        <label for="user_nom">Nom</label> 
+        <input type="text" name="user_nom" id="user_nom" maxlength="50" value="<?php echo isset($d['user_nom']) ? $d['user_nom'] : ''; ?>" required>
+
+        <label for="user_email">Email</label>
+        <input type="text" name="user_email" id="user_email" maxlength="50" value="<?php echo isset($d['user_email']) ? $d['user_email'] : ''; ?>" required>
+
+        <label for="user_password">Mot de passe</label>
+        <input type="password" name="user_password" id="user_password" maxlength="50" required>
+
+        <label for="user_password2">Confirmer Mot de passe</label>
+        <input type="password" name="user_password2" id="user_password2" maxlength="50" required>
+
+        <input type="submit" value="Envoyer">
+    </form>
+</section>
+
+
+
+<?php
+get_footer();
