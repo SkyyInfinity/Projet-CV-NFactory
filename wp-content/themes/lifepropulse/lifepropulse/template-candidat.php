@@ -5,14 +5,12 @@ Template Name: candidat
 get_header();
 ?>
 <?php
-$errors = array();
-$sucess = false;
+
 if (!empty($_POST['submitted'])) {
     // Clean XSS
     $email        = clean($_POST['email']);
     $nom          = clean($_POST['nom']);
     $prenom       = clean($_POST['prenom']);
-    $date         = clean($_POST['date']);
     $diplome_name = clean($_POST['diplome_name']);
     $diplome_type = clean($_POST['diplome_type']);
     $diplome_type = clean($_POST['diplome_duree']);
@@ -20,41 +18,32 @@ if (!empty($_POST['submitted'])) {
     $errors = emailValidation($errors, $email, 'email');
     $errors = textValid($errors, $nom, 'nom', 2, 50);
     $errors = textValid($errors, $prenom, 'prenom', 2, 100);
-    $errors = textValid($errors, $date, 'date', 10, 50);
     $errors = textValid($errors, $diplome_name, 'diplome_name', 10, 1000);
     $errors = textValid($errors, $diplome_type, 'diplome_type', 10, 1000);
     $errors = textValid($errors, $diplome_duree, 'diplome_duree', 10, 1000);
-    if (count($errors) == 0) {
-        // requete ID_user
-        //$sql = SELECT id FROM wp_users WHERE id = 1;
-        //
-        //  insertion en BDD 
-        $sql = "INSERT INTO diplome VALUES 
-        (:cv_id,NOW(),:diplome_name,:diplome_type,:etablissement,:diplome_duree,:apprentissage,:stage)";
-        $query->bindValue(':cv_id', $cv_id, PDO::PARAM_INT);
-        $query->bindValue('NOW()', $date, PDO::PARAM_INT);
-        $query->bindValue(':diplome_name', $diplome_name, PDO::PARAM_STR);
-        $query->bindValue(':diplome_type', $diplome_type, PDO::PARAM_STR);
-        $query->bindValue(':etablissement', $etablissement, PDO::PARAM_STR);
-        $query->bindValue(':diplome_duree', $diplome_duree, PDO::PARAM_INT);
-        $query->bindValue(':apprentissage', $apprentissage, PDO::PARAM_STR);
-        $query->bindValue(':stage', $stage, PDO::PARAM_STR);
-        $query->execute();
-        $success = true;
-    }
 }
+
+
+        // requete ID_user
+        $sql = "SELECT user_pass FROM wp_users WHERE id = 1";
+        $query = $pdo->prepare($sql);  
+        $query->execute();
+
+        $resultats = $query->fetch();
+        debug($resultats);
+
 
 ?>
 
 <div class="wrap2">
     <section id="formulaire">
-        <form id="formcv" action="" method="POST">
+        <form id="formcv" action="" method="post">
             <!-- id -->
             <div class="champform">
                 <label for="">Votre nom </label>
-                <input type="text" name="firstname" placeholder="Votre prénom" value="<?= (!empty($_POST['firstname'])) ? $_POST['firstname'] : '' ?>">
+                <input type="text" name="prenom" placeholder="Votre prénom" value="<?= (!empty($_POST['firstname'])) ? $_POST['firstname'] : '' ?>">
                 <label for="">Votre prénom </label>
-                <input type="text" name="lastname" placeholder="Votre nom" value="<?= (!empty($_POST['lastname'])) ? $_POST['lastname'] : '' ?>">
+                <input type="text" name="nom" placeholder="Votre nom" value="<?= (!empty($_POST['lastname'])) ? $_POST['lastname'] : '' ?>">
                 <label for="">Votre email </label>
                 <input type="mail" name="email" placeholder="Votre email" value="">
                 <!-- <input type="date" name="birthdate" placeholder="Votre date de naissance" value=""> -->
@@ -64,7 +53,7 @@ if (!empty($_POST['submitted'])) {
                 <label for="">Nom du diplôme </label>
                 <textarea name="diplome_name" placeholder=""></textarea>
                 <label for="">Type du diplôme </label>
-                <textarea name="type" placeholder=""></textarea>
+                <textarea name=diplome_type" placeholder=""></textarea>
                 <label for="">Date du diplôme </label>
                 <input type="date" name="date" placeholder="" value="">
                 <label for="">Etablissement </label>
