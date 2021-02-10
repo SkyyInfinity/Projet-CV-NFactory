@@ -55,47 +55,100 @@ if (!empty($_POST['submitted'])) {
 
 <div class="wrap2">
     <section id="formulaire">
-
         <form id="formcv" action="" method="POST">
+            <!-- id -->
             <div class="champform">
-                <input type="text" name="firstname" placeholder="Votre prénom" value="">
-                <input type="text" name="lastname" placeholder="Votre nom" value="">
-                <input type="mail" name="email" placeholder="Votre email" value="">
-                <!-- <input type="date" name="birthdate" placeholder="Votre date de naissance" value=""> -->
+                <label for="">Votre prénom </label>
+                <input type="text" name="firstname" placeholder="" value="<?= (!empty($_POST['firstname'])) ? $_POST['firstname'] : '' ?>">
+                <label for="">Votre nom </label>
+                <input type="text" name="lastname" placeholder="" value="<?= (!empty($_POST['lastname'])) ? $_POST['lastname'] : '' ?>">
+                <label for="">Votre email </label>
+                <input type="mail" name="email" placeholder="" value="<?php if (!empty($_POST['email'])) echo $_POST['email'];
+                                                                        elseif (!empty($_SESSION['visitor']['email'])) echo $_SESSION['visitor']['email']; ?>">
+                <label for="">Votre date de naissance </label>
+                <!-- <input type="date" name="birthdate" placeholder="" value="<?= (!empty($_POST['birthdate'])) ? $_POST['birthdate'] : '' ?>"> -->
             </div>
+            <!-- champs diplômes -->
             <div class="champform">
-                <label for="Formation"></label>
-                <input type="text" name="Formation" placeholder="" value="">
-                <input type="date" name="date" placeholder="" value="">
-                <input type="text" name="Nom de la formation" placeholder="" value="">
-                <textarea name="" placeholder="">
-                <input type="text" name="Type de la formation" placeholder="" value="">
-                <textarea name="formations" placeholder="">
-                <input type="text" name="Etablissement" placeholder="" value="">
-                <textarea name="formations" placeholder="">
-                <input type="text" name="Durée de la formation" placeholder="" value="">
-                <textarea name="formations" placeholder="">
+                <label for="">Nom du diplôme </label>
+                <textarea name="diplome_name"><?= (!empty($_POST['diplome_name'])) ? $_POST['diplome_name'] : '' ?></textarea>
+                <label for="">Type du diplôme </label>
+                <textarea name="diplome_type"><?= (!empty($_POST['diplome_type'])) ? $_POST['diplome_type'] : '' ?></textarea>
+                <label for="">Date du diplôme </label>
+                <input type="date" name="date" placeholder="" value="<?= (!empty($_POST['date'])) ? $_POST['date'] : '' ?>">
+                <label for="">Etablissement </label>
+                <input type="text" name="etablissement" placeholder="" value="<?= (!empty($_POST['etablissement'])) ? $_POST['etablissement'] : '' ?>">
+                <label for="">Apprentissage </label>
+                <select name="apprentissage" id="">
+                    <option value="" <?= (!empty($_POST['apprentissage'])) ? '' : 'selected' ?>hidden> --Choisissez-- </option>
+                    <option value="oui" <?= (!empty($_POST['apprentissage']) && $_POST['apprentissage'] == 'oui') ? 'selected' : '' ?>>Oui</option>
+                    <option value="non" <?= (!empty($_POST['apprentissage']) && $_POST['apprentissage'] == 'non') ? 'selected' : '' ?>>Non</option>
+                </select>
+                <label for="">Stage </label>
+                <select name="stage" id="">
+                    <option value="" <?= (!empty($_POST['stage'])) ? '' : 'selected' ?> hidden> --Choisissez-- </option>
+                    <option value="oui" <?= (!empty($_POST['stage']) && $_POST['stage'] == 'oui') ? 'selected' : '' ?>>Oui</option>
+                    <option value="non" <?= (!empty($_POST['stage']) && $_POST['stage'] == 'non') ? 'selected' : '' ?>>Non</option>
+                </select>
             </div>
-            <div>
-                <input type="text" name="" placeholder="Vos diplomes" value="">
-                <input type="date" name="date" placeholder="" value="">
-                <textarea name="diplomes" placeholder="Vos diplomes">
+            <!-- champs expériences pro -->
+            <div class="champform">
+                <label for="">Nom du poste </label>
+                <textarea name="nom" placeholder=""><?= (!empty($_POST['nom'])) ? $_POST['nom'] : '' ?></textarea>
+                <label for="">Date de l'expérience </label>
+                <input type="date" name="date" placeholder="" value="<?= (!empty($_POST['date'])) ? $_POST['date'] : '' ?>">
+                <label for="">Durée de l'expérience </label>
+                <textarea name="duree" placeholder=""><?= (!empty($_POST['duree'])) ? $_POST['duree'] : '' ?></textarea>
+                <label for="">Entreprise </label>
+                <input type="text" name="entreprise" placeholder="" value="<?= (!empty($_POST['entreprise'])) ? $_POST['entreprise'] : '' ?>">
+                <label for="">Missions demandées</label>
+                <textarea name="missions" placeholder="" <?= (!empty($_POST['missions'])) ? $_POST['missions'] : '' ?>></textarea>
             </div>
-            <div>
-                <input type="text" name="" placeholder="Vos expériences professionnelles" value="">
-                <input type="date" name="date" placeholder="" value="">
-                <textarea name="experiences" placeholder="Vos expériences professionnelles">
+            <!-- champs formations -->
+            <div class="champform">
+                <label for="">Nom de la formation </label>
+                <textarea name="formation_name" placeholder=""><?= (!empty($_POST['formation_name'])) ? $_POST['formation_name'] : '' ?></textarea>
+                <label for="">Type de formation </label>
+                <textarea name="formation_type" placeholder=""><?= (!empty($_POST['formation_type'])) ? $_POST['formation_type'] : '' ?></textarea>
+                <label for="">Date de la formation </label>
+                <input type="date" name="date" placeholder="" value="<?= (!empty($_POST['date'])) ? $_POST['date'] : '' ?>">
+                <label for="">Durée de la formation </label>
+                <textarea name="duree" placeholder=""><?= (!empty($_POST['duree'])) ? $_POST['duree'] : '' ?></textarea>
+                <label for="">Etablissement </label>
+                <input type="text" name="etablissement" placeholder="" value="<?= (!empty($_POST['etablissement'])) ? $_POST['etablissement'] : '' ?>">
             </div>
-            <div>
-                <input type="text" name="competences" placeholder="Vos compétences" value="">
-                <textarea name="competences" placeholder="Vos compétences">
+            <!-- champs compétences -->
+            <div class="champform">
+                <label for="">Type de compétence </label>
+                <textarea name="competence_type" placeholder=""><?= (!empty($_POST['competence_type'])) ? $_POST['competence_type'] : '' ?></textarea>
+                <label for="">Nom de compétence </label>
+                <textarea name="competence_name" placeholder=""><?= (!empty($_POST['competence_name'])) ? $_POST['competence_name'] : '' ?></textarea>
+                <label for="">Niveau de compétence </label>
+                <textarea name="niveau" placeholder=""><?= (!empty($_POST['niveau'])) ? $_POST['niveau'] : '' ?></textarea>
             </div>
-            <textarea name="loisirs" placeholder="Vos loisirs">
-
+            <!-- champs loisirs -->
+            <div class="champform">
+                <label for="">Nom du loisir </label>
+                <textarea name="loisir_name" placeholder=""><?= (!empty($_POST['loisir_name'])) ? $_POST['loisir_name'] : '' ?></textarea>
+                <label for="">Type de loisir </label>
+                <textarea name="loisir_type" placeholder=""><?= (!empty($_POST['loisir_type'])) ? $_POST['loisir_type'] : '' ?></textarea>
+                <label for="">Niveau </label>
+                <textarea name="niveau" placeholder=""><?= (!empty($_POST['niveau'])) ? $_POST['niveau'] : '' ?></textarea>
+            </div>
             <input type="submit" name="submit" class="btn" value="Valider">
+            <?php
+            $dest = "destinataire@gmail.com";
+            $sujet = "Email de test";
+            $corp = "Salut ceci est un email de test envoyé par un script PHP";
+            $headers = "From: VotreGmailId@gmail.com";
+            if (mail($dest, $sujet, $corp, $headers)) {
+                echo "Email envoyé avec succès à $dest ...";
+            } else {
+                echo "Échec de l'envoi de l'email...";
+            }
+            ?>
         </form>
     </section>
 </div>
-
 <?php
 get_footer();
