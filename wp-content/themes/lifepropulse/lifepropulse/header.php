@@ -55,4 +55,20 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
+
+		<!-- 	Si user connecter alors il peux acceder à son profil et se deconnecter
+				Si user pas connecter alors il peux se connecter
+		-->
+		<div class="social">
+			<?php $user = wp_get_current_user(); ?>
+			<?php if($user->ID == 0): ?>
+				<a href='<?php echo bloginfo('url');?>/connexion'>Se connecter</a>
+				<a href='<?php echo bloginfo('url');?>/inscription'>S'inscrire'</a>
+			<?php else: ?>
+				<a href='<?php echo bloginfo('url');?>/profil'> Mon profil</a>
+				<a href='<?php echo bloginfo('url');?>/logout'> Se déconnecter </a>
+			<?php endif; ?>
+
+
+		</div>
 	</header><!-- #masthead -->
