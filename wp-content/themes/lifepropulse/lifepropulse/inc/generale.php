@@ -97,9 +97,13 @@ add_action( 'widgets_init', 'lifepropulse_widgets_init' );
  * Enqueue scripts and styles.
  */
 function lifepropulse_scripts() {
+	// CSS
 	wp_enqueue_style( 'lifepropulse-style', get_stylesheet_uri(), array(), _S_VERSION );
-
-    wp_enqueue_script('js', get_template_directory_uri() . '/asset/js/main.js',array(), '1.0.0', true );
+	// JS
+	wp_deregister_script('jquery');
+    wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), '3.5.1', true );
+    wp_enqueue_script('js', get_template_directory_uri() . '/asset/js/main.js', array(), '1.0.0', true );
+    wp_enqueue_script('navigation', get_template_directory_uri() . '/asset/js/navigation.js', array(), '1.0.0', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'lifepropulse_scripts' );
