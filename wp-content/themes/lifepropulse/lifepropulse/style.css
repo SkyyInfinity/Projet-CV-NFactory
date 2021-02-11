@@ -127,6 +127,8 @@ body {
 .site-main {
     padding-top: 130px;
 }
+
+
     /*FOOTER*/
     footer.site-footer {
         background-color: #303030;
@@ -209,6 +211,83 @@ body {
         justify-content: space-between
     }
 
+    .title-form{
+        background: -webkit-linear-gradient( 0deg, #FFF000, #FF6400);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;   
+         text-align: center;
+        margin-bottom: 40px;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .nom {
+        width: 50%;
+        padding-right: 10px;
+    }
+    
+
+    .prenom {
+        width: 50%;
+        padding-left: 10px;
+
+    }
+
+    .nom-prenom{
+        display: flex;
+        justify-content: space-between
+    }
+
+    .champ {
+        margin:  10px 0;
+    }
+
+    label{
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    
+
+    .image-inscription{
+        margin-left: 109px;
+    }
+
+    .flex-inscription{
+        justify-content: space-between;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        padding: 50px 0;
+        
+    }
+    input[type=text], input[type=email], input[type=password], textarea  {
+        outline: none;
+        border: none;
+        border-radius: 50px;
+        border: 1px solid #DEDEDE;
+        padding: 5px;
+        width: 100%;
+
+    }
+
+    input[type=submit]{
+        outline: none;
+        padding: 7px 20px;
+        font-size: 16px;
+        width: 100%;
+    }
+    
+    .envoyer-formulaire{
+        margin: 25px 0;
+    }
+
+    .error {
+        text-align: center;
+        color: crimson;
+    }
+    
+    
     
 /*FOOTER*/
 
