@@ -24,21 +24,24 @@
 					<p>Telephone 02 32 00 00 00</p>
 				</div>
 			</div>
-			<ul>
-				<div class="links">
-
-					<li><a href="#">Mention Légales</a></li>
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Contact</a></li>
-				</div>
-				<div class="social">
-
-					<li><a href="#">Logo Facebook</a></li>
-					<li><a href="#">Logo Twitter</a></li>
-					<li><a href="#">Logo Instagram</a></li>
-					<li><a href="#">Logo Linkedn</a></li>
-				</div>
-			</ul>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location'  => 'menu-2',
+					'menu'            => '',
+					'container'       => '',
+					'container_class' => 'links',
+				)
+			);
+			?> 
+			<div class="social">
+				<ul>
+					<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div class="footer_foot">
@@ -50,4 +53,5 @@
 </div> <!-- #page-->
 <?php wp_footer(); ?>
 </body>
+
 </html>
