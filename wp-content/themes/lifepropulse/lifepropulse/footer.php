@@ -9,18 +9,6 @@
  *
  * @package lifepropulse
  */
-$args3 = array(
-	'post_type' => 'tweet',
-	'post_status' => 'publish',
-	'posts_per_page' => 5,
-	'orderby' => 'date',
-	'order' => 'DESC'
-);
-
-$the_query3 = new WP_Query($args3);
-
-
-
 
 ?>
 
@@ -59,7 +47,7 @@ $the_query3 = new WP_Query($args3);
 		</div>
 	</div>
 </footer>
+</div> <!-- #page-->
 <?php wp_footer(); ?>
 </body>
-
 </html>
