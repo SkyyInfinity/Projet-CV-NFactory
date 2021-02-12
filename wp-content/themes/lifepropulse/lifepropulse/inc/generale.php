@@ -98,6 +98,7 @@ add_action( 'widgets_init', 'lifepropulse_widgets_init' );
  */
 function lifepropulse_scripts() {
 	// CSS
+	wp_enqueue_style( 'fontawesome-style', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.css', array(), '5.15.2');
 	wp_enqueue_style( 'lifepropulse-style', get_stylesheet_uri(), array(), _S_VERSION );
 	// JS
 	wp_deregister_script('jquery');
