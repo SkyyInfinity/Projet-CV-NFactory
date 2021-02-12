@@ -325,14 +325,14 @@ input[type=submit] {
     font-weight: bold;
 }
 
-.form-connect input[type=email], input[type=password] {
+/* .form-connect input[type=email], input[type=password] {
     outline: none;
     border: none;
     border-radius: 50px;
-    border: 10px solid #DEDEDE;
-    padding: 10px;
+    border: 5px solid #DEDEDE;
+    padding: 1px;
     width: 100%;
-}
+} */
 
 /*FOOTER*/
 
