@@ -20,7 +20,7 @@ if($user->ID != 0){
 get_header();
 ?>
 
-<section>
+<section class="site-main">
     <h1>Connexion / User</h1>
 
     <?php if ($error):?>
