@@ -252,7 +252,127 @@ footer.site-footer {
     justify-content: space-between
 }
 
+/*FOOTER*/
+
+footer {
+    background-color: #303030;
+    padding: 15px 0;
+}
+
+.contact_footer {
+    color: #DEDEDE;
+    margin-left: 35px;
+}
+
+.contact_footer p {
+    line-height: 1.5em;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex ul li {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.flex a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo-footer_center {
+    display: flex;
+    align-items: center;
+}
+
+.logo-footer_center .logo img {
+    width: 150px;
+}
+
+.footer_foot {
+    text-align: center;
+    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    font-weight: 100;
+    font-style: italic;
+    font: 400;
+    padding: 10px 0;
+    font-size: .9em;
+}
+
+.nav_links ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_links ul li a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #DEDEDE;
+    font-weight: 600;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between
+}
+
+.fab {
+    font-size: 1.5em;
+}
+
+
+    
+/* ---------Template Candidat ---------------*/
+
+/*----- Formulaire ------ */
+.error {
+    color:red;
+    margin-top: 5px;
+}
+
+
+
 /* ─── RESPONSIVE ────────────────────────────────────────── */
+@media only screen and (max-width: 1700px) {
+    .flex {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .flex ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .logo-footer_center {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
 @media only screen and (max-width: 1700px) {
     .flex {
         flex-direction: column;
