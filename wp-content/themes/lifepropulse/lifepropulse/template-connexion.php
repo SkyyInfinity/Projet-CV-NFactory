@@ -21,7 +21,7 @@ get_header();
 ?>
 
 <section class="site-main">
-    <h1>Connexion / User</h1>
+    <h1>Connexion</h1>
 
     <?php if ($error):?>
         <div class="error">

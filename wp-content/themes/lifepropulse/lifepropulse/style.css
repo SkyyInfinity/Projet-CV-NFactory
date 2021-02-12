@@ -382,7 +382,6 @@ footer {
 }
 
 
-    
   
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
@@ -417,6 +416,16 @@ footer {
     }
 }
 
+
+@media only screen and (max-width: 1700px) {
+    .title-form {
+        margin-top: 40px;
+        justify-content: center;
+    }
+}
+
+
+
 @media only screen and (max-width: 1475px) {
     .wrap {
     width: 100%;
@@ -425,6 +434,23 @@ footer {
     padding: 0 15px;
     }
 }
+
+@media only screen and (max-width: 1400px) {
+    .flex-inscription  {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* max-width: 1440px; */
+    margin: 0 auto;
+    padding: 0 15px;
+    }
+    .image-inscription {
+        justify-content: center;
+        margin-top: 50px;  
+    }
+}
+
+
 
 @media screen and (max-width: 1000px) {
     .widget_nav ul.menu {
@@ -527,6 +553,26 @@ footer {
         background-size: contain;
     }
 }
+
+@media only screen and (max-width: 900px) {
+    .image-inscription img{
+     justify-content: center;
+     align-items: center;
+     display: inline-block;
+     width: 80%;  
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .image-inscription img{
+     justify-content: center;
+     align-items: center;
+     width: 70%;
+    }
+}
+
+
+
 @media screen and (max-width: 350px) {
     .widget_nav .logo img {
         width: 80%;

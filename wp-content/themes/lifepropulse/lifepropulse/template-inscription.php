@@ -47,14 +47,13 @@ get_header();
 
         <div class="flex-inscription">
 
-
             <div class="image-inscription">
                 <img src="<?php echo get_template_directory_uri() ?> /asset/img/group_style.png" alt="">
             </div>
 
             <div class="ensemble-form">
                 <div class="title-form">
-                    <h1>Connexion</h1>
+                    <h1>Inscription</h1>
 
                 </div>
 
@@ -89,7 +88,7 @@ get_header();
                     </div>
                     <?php if ($error) : ?>
                         <div class=" error">
-                            <?php echo '<p class="error">'.$error .' </p> '; ?> 
+                            <?php echo '<p class="error">' . $error . ' </p> '; ?>
                         </div>
                     <?php endif ?>
 
@@ -102,7 +101,5 @@ get_header();
     </div>
 
 </section>
-
-
 <?php
 get_footer();
