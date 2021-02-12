@@ -46,6 +46,46 @@ body {
     margin: 0 auto;
     padding: 0 15px;
 }
+.btn-primary {
+    opacity: 1 !important;
+    font-weight: 800 !important;
+    border: 3px solid #303030;
+    border-radius: 50px;
+    transition: .2s;
+}
+.btn-primary:hover {
+    background-color: #303030;
+    color: white;
+}
+.btn-secondary {
+    opacity: 1 !important;
+    font-weight: 800 !important;
+    border: 3px solid #303030;
+    background-color: #303030;
+    color: white !important;
+    border-radius: 50px;
+    transition: .2s;
+}
+.btn-secondary:hover {
+    border: 3px solid black;
+    background-color: black;
+}
+.btn-color {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    border-radius: 25px;
+    padding: 7px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: .2s;
+}
+.btn-color:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+}
 
 /* ─── LAYOUT ────────────────────────────────────────────── */
 
@@ -62,9 +102,9 @@ body {
 
 .site-header.sticky {
     padding: 5px 0;
-    box-shadow: 0px 15px 29px -10px rgba(0, 0, 0, 0.50);
-    -webkit-box-shadow: 0px 15px 29px -10px rgba(0, 0, 0, 0.50);
-    -moz-box-shadow: 0px 15px 29px -10px rgba(0, 0, 0, 0.50);
+    box-shadow: 0px 15px 29px -10px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 15px 29px -10px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 15px 29px -10px rgba(0,0,0,0.3);
 }
 
 /* ─── MODULE ────────────────────────────────────────────── */
@@ -106,17 +146,77 @@ body {
 .widget_nav ul li a:hover {
     opacity: 1;
 }
-
-.btn-primary {
-    opacity: 1 !important;
-    font-weight: 800 !important;
-    border: 3px solid #303030;
-    border-radius: 50px;
-    transition: .2s;
+.burger {
+    display: none;
 }
 
-.btn-primary:hover {
+/* __Content__ */
+.site-main {
+    padding-top: 130px;
+}
+#section_home {
+    padding: 220px 0 150px 0;
+    background-image: url('./asset/img/bg-home-desktop.png');
+    background-position: center;
+    background-size: cover;
+}
+#section_home .header-info {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+#section_home .header-info h1 {
+    color: #303030;
+    font-size: 4em;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+#section_home .header-info p {
+    color: #999999;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    padding: 20px 0;
+}
+#section_home .header-info .btn {
+    padding: 20px 0;
+}
+
+/*FOOTER*/
+footer.site-footer {
     background-color: #303030;
+}
+
+.contact_footer {
+    color: #DEDEDE;
+    margin-left: 35px;
+}
+
+.contact_footer p {
+    line-height: 1.5em;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex ul li {
+    margin: 0 15px;
+    text-decoration: none;
     color: white;
 }
 
@@ -334,6 +434,49 @@ input[type=submit] {
     width: 100%;
 } */
 
+.flex a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo-footer_center {
+    display: flex;
+    align-items: center;
+}
+
+.footer_foot {
+    text-align: center;
+    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    font-weight: 100;
+    font-style: italic;
+    font: 400;
+    padding: 10px 0;
+    font-size: .9em;
+}
+
+.nav_links ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_links ul li a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #DEDEDE;
+    font-weight: 600;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between
+}
+
 /*FOOTER*/
 
 footer {
@@ -425,6 +568,18 @@ footer {
 .fab {
     font-size: 1.5em;
 }
+
+
+    
+/* ---------Template Candidat ---------------*/
+
+/*----- Formulaire ------ */
+.error {
+    color:red;
+    margin-top: 5px;
+}
+
+
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 
