@@ -44,7 +44,6 @@ get_header();
 
 <section class="site-main">
     <div class="wrap">
-
         <div class="flex-inscription">
 
             <div class="image-inscription">
