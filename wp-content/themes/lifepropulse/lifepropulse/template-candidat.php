@@ -130,8 +130,8 @@ get_header();
         <!-- <input type="text" placeholder="formation2" />
         <input type="text" placeholder="formation3" />
         <input type="text" placeholder="formatione4" /> -->
-        <button class="form__btn" id="btn-2-prev">Previous</button>
-        <button class="form__btn" id="btn-2-next">Next</button>
+        <button class="form__btn" id="btn-3-prev">Previous</button>
+        <button class="form__btn" id="btn-3-next">Next</button>
     </form>
 
     <!-- EXPERIENCES -->
@@ -153,8 +153,8 @@ get_header();
         <!-- <input type="text" placeholder="expérience2" />
         <input type="text" placeholder="expérience3" />
         <input type="text" placeholder="expérience4" /> -->
-        <button class="form__btn" id="btn-2-prev">Précédent</button>
-        <button class="form__btn" id="btn-2-next">Suivant</button>
+        <button class="form__btn" id="btn-4-prev">Précédent</button>
+        <button class="form__btn" id="btn-4-next">Suivant</button>
     </form>
 
 
@@ -175,8 +175,8 @@ get_header();
         <!-- <input type="text" placeholder="compétence2" />
         <input type="text" placeholder="compétence3" />
         <input type="text" placeholder="compétence4" /> -->
-        <button class="form__btn" id="btn-2-prev">Précedent</button>
-        <button class="form__btn" id="btn-2-next">Suivant</button>
+        <button class="form__btn" id="btn-5-prev">Précedent</button>
+        <button class="form__btn" id="btn-5-next">Suivant</button>
     </form>
 
     <!-- LOISIRS -->
@@ -196,7 +196,7 @@ get_header();
         <!-- <input type="text" placeholder="loisir2" />
         <input type="text" placeholder="loisir3" />
         <input type="text" placeholder="loisir4" /> -->
-        <button class="form__btn" id="btn-4">Envoyez</button>
+        <button class="form__btn" id="btn-6">Envoyez</button>
     </form>
     <div class="form--message"></div>
 </main>
