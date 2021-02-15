@@ -29,10 +29,7 @@ get_header();
             </div>
 
             <div class="ensemble-form">
-                <div class="title-form-connect">
-                    <h1 class="title-connect">Connexion</h1>
-
-                </div>
+                <h1 class="h1-page-title">Connexion</h1>
 
                 <?php if ($error) : ?>
                     <div class="error">
@@ -42,13 +39,13 @@ get_header();
 
                 <div class="form-connect">
                     <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
-                        <div class="email-connect">
-                            <label for="user_login">Votre adresse e-mail:</label>
-                            <input type="email" name="user_login" id="user_login" maxlength="50" required placeholder=" e-mail">
+                        <div class="email-connect champ">
+                            <label for="user_login">Votre Email</label>
+                            <input type="text" name="user_login" id="user_login" maxlength="50" required placeholder="exemple@email.com">
                         </div>
-                        <div class="mdp">
-                            <label for="user_password">Votre Mot de passe:</label>
-                            <input type="password" name="user_password" id="user_password" maxlength="50" required placeholder="Mot de Passe">
+                        <div class="mdp champ">
+                            <label for="user_password">Votre Mot de passe</label>
+                            <input type="password" name="user_password" id="user_password" maxlength="50" required placeholder="******">
                         </div>
 
                             <div class="envoyer-formulaire champ">

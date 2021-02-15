@@ -51,10 +51,7 @@ get_header();
             </div>
 
             <div class="ensemble-form">
-                <div class="title-form">
-                    <h1>Inscription</h1>
-
-                </div>
+                <h1 class="h1-page-title">Inscription</h1>
 
                 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 

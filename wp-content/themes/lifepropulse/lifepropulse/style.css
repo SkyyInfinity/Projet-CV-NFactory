@@ -318,26 +318,26 @@ footer.site-footer {
     font-weight: bold;
 }
 
-.nom {
+.flex-inscription .nom {
     width: 50%;
     padding-right: 10px;
 }
 
-.prenom {
+.flex-inscription .prenom {
     width: 50%;
     padding-left: 10px;
 }
 
-.nom-prenom {
+.flex-inscription .nom-prenom {
     display: flex;
     justify-content: space-between
 }
 
-.champ {
+.flex-inscription .champ {
     margin: 10px 0;
 }
 
-label {
+.flex-inscription label {
     display: block;
     margin-bottom: 10px;
 }
@@ -354,30 +354,27 @@ label {
     padding: 50px 0;
 }
 
-input[type=text], input[type=email], input[type=password], textarea {
-    outline: none;
-    border: none;
-    border-radius: 50px;
-    border: 1px solid #DEDEDE;
-    padding: 5px;
-    width: 100%;
-    input[type=email], input[type=password],
-}
-
-input[type=submit] {
-    outline: none;
-    padding: 7px 20px;
-    font-size: 16px;
+.flex-inscription :not(input[type=submit]) {
     width: 100%;
 }
-
+.flex-connexion :not(input[type=submit]) {
+    width: 100%;
+}
+.envoyer-formulaire{
+    text-align: center;
+}
 .envoyer-formulaire {
     margin: 25px 0;
 }
-
 .error {
     text-align: center;
     color: crimson;
+}
+.flex-inscription .ensemble-form {
+    margin-left: 50px;
+}
+.flex-connexion .ensemble-form {
+    margin-right: 50px;
 }
 
 /* Style connextion */
@@ -404,26 +401,14 @@ input[type=submit] {
     font-size: 80px;
     font-weight: bold;
 }
-
-/* .form-connect input[type=email], input[type=password] {
-    outline: none;
-    border: none;
-    border-radius: 50px;
-    border: 5px solid #DEDEDE;
-    padding: 1px;
-    width: 100%;
-} */
-
 .flex a {
     text-decoration: none;
     color: white;
 }
-
 .logo-footer_center {
     display: flex;
     align-items: center;
 }
-
 .footer_foot {
     text-align: center;
     background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
@@ -581,18 +566,19 @@ h1.h1-page-title::before {
     height: 3px;
     background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
 }
-#section_contact form .champ {
+form .champ {
     margin: 10px 0;
 }
-#section_contact form label {
+form label {
     display: block;
     margin-bottom: 7px;
     font-size: 1.2em;
     font-weight: bold;
 }
-#section_contact form input[type=text],
-#section_contact form input[type=email],
-#section_contact form textarea {
+form input[type=text],
+form input[type=email],
+form input[type=password],
+form textarea {
     outline: none;
     border: 1px solid #dedede;
     border-radius: 50px;
@@ -603,29 +589,30 @@ h1.h1-page-title::before {
     font-weight: lighter;
     transition: .2s;
 }
-#section_contact form input[type=text]:focus,
-#section_contact form input[type=email]:focus,
-#section_contact form textarea:focus {
+form input[type=text]:focus,
+form input[type=password]:focus,
+form input[type=email]:focus,
+form textarea:focus {
     box-shadow: 0px 0px 4px 0px rgba(143,143,143,0.5);
 -webkit-box-shadow: 0px 0px 4px 0px rgba(143,143,143,0.5);
 -moz-box-shadow: 0px 0px 4px 0px rgba(143,143,143,0.5);
 }
-#section_contact form textarea {
+form textarea {
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
     resize: vertical;
     height: 250px;
 }
-#section_contact form .submit {
+form .submit {
     margin: 30px 0;
 }
-#section_contact form input[type=submit] {
+form input[type=submit] {
     outline: none;
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
 }
-#section_contact form input::placeholder {
+form input::placeholder {
     color: #b1b1b1;
     font-style: italic;
 }
