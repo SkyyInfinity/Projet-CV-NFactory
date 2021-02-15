@@ -104,6 +104,6 @@ function lifepropulse_scripts() {
     wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), '3.5.1', true );
     wp_enqueue_script('js', get_template_directory_uri() . '/asset/js/main.js', array(), '1.0.0', true );
     wp_enqueue_script('navigation', get_template_directory_uri() . '/asset/js/navigation.js', array(), '1.0.0', true );
-
+	wp_enqueue_script('formulaire', get_template_directory_uri() . '/asset/js/formulaire.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'lifepropulse_scripts' );
