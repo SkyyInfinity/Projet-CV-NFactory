@@ -16,6 +16,7 @@ get_header();
         <div class="step--5"><a href="#">5.Competences</a></div>
         <div class="step--6"><a href="#">6.Loisirs</a></div>
     </div>
+
     <form class="form form-active">
         <div class="form--header-container">
             <h1 class="form--header-title">
@@ -25,11 +26,31 @@ get_header();
                 Dites-nous en plus à propos de vous.
             </p>
         </div>
-        <input type="text" name="name" placeholder="Nom" />
-        <input type="text" name="firstname" placeholder="Prénom" />
-        <input type="text" name="email" placeholder="Email" />
-        <input type="text" name="birthdate" placeholder="Date de naissance" />
-        <input type="text" name="cellphone" placeholder="Numero de telephone" />
+        <div class="nom champ">
+            <label for="name">Votre nom</label>
+            <input id="name" type="text" name="name" placeholder="Nom" />
+            <span class="error"><?php if (!empty($errors['name'])) {echo $errors['name'];}; ?></span>
+        </div>
+        <div class="prenom champ">
+            <label for="firstname">Votre prenom</label>
+            <input type="text" name="firstname" placeholder="Prénom" />
+            <span class="error"><?php if (!empty($errors['firstname'])) {echo $errors['firstname'];}; ?></span>
+        </div>
+        <div class="email champ">
+            <label for="email">Votre Email</label>
+            <input type="text" name="email" placeholder="Email" />
+            <span class="error"><?php if (!empty($errors['email'])) {echo $errors['email'];}; ?></span>
+        </div>
+        <div class="birthdate champ">
+            <label for="birthdate">Votre date de naissance</label>
+            <input type="text" name="birthdate" placeholder="Date de naissance" />
+            <span class="error"><?php if (!empty($errors['birthdate'])) {echo $errors['birthdate'];}; ?></span>
+        </div>
+        <div class="cellphone champ">
+            <label for="cellphone">Votre numero de téléphone</label>
+            <input type="text" name="cellphone" placeholder="Numero de téléphone" />
+            <span class="error"><?php if (!empty($errors['name'])) {echo $errors['name'];}; ?></span>
+        </div>
         <button class="form__btn" id="btn-1">Suivant</button>
     </form>
 
@@ -175,7 +196,7 @@ get_header();
         <!-- <input type="text" placeholder="loisir2" />
         <input type="text" placeholder="loisir3" />
         <input type="text" placeholder="loisir4" /> -->
-        <button class="form__btn" id="btn-3">Envoyez</button>
+        <button class="form__btn" id="btn-4">Envoyez</button>
     </form>
     <div class="form--message"></div>
 </main>

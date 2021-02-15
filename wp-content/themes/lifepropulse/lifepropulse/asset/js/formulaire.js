@@ -1,31 +1,58 @@
+
 const formBtn1 = document.querySelector("#btn-1")
+
 const formBtnPrev2 = document.querySelector("#btn-2-prev")
 const formBtnNext2 = document.querySelector("#btn-2-next")
-const formBtn3 = document.querySelector("#btn-3")
 
-// Button listener of form 1
+const formBtnPrev3 = document.querySelector("#btn-3-prev")
+const formBtnNext3 = document.querySelector("#btn-3-next")
+
+const formBtnPrev4 = document.querySelector("#btn-4-prev")
+const formBtnNext4 = document.querySelector("#btn-4-next")
+
+const formBtnPrev5 = document.querySelector("#btn-5-prev")
+const formBtnNext5 = document.querySelector("#btn-5-next")
+
+const formBtn6 = document.querySelector("#btn-6")
+
+
+// Button listener of form 1  BTN SUIVANT 1
 formBtn1.addEventListener("click", function(e) {
-    console.log('coucou3');
+    // console.log('coucou3');
     gotoNextForm(formBtn1, formBtnNext2, 1, 2)
     e.preventDefault()
   })
   
-  // Next button listener of form 2
+  // Next button listener of form 2  BTN SUIVANT 2
   formBtnNext2.addEventListener("click", function(e) {
     gotoNextForm(formBtnNext2, formBtn3, 2, 3)
     e.preventDefault()
   })
   
-  // Previous button listener of form 2
+  // Previous button listener of form 2 PRECEDANT 2
   formBtnPrev2.addEventListener("click", function(e) {
-    gotoNextForm(formBtnNext2, formBtn1, 2, 1)
+    gotoNextForm(formBtnPrev2, formBtn1, 2, 1)
     e.preventDefault()
   })
   
-  // Button listener of form 3
+  // Next button listener of form 2  BTN SUIVANT 3
+  formBtnNext3.addEventListener("click", function(e) {
+    gotoNextForm(formBtnNext3, formBtn3, 2, 3)
+    e.preventDefault()
+  })
+
+  // Previous button listener of form 2 PRECEDANT 3
+  formBtnPrev3.addEventListener("click", function(e) {
+    gotoNextForm(formBtnNext3, formBtn1, 2, 1)
+    e.preventDefault()
+  })
+
+
+
+  // Button listener of form 3  BTN ENVOYEZ 3
   formBtn3.addEventListener("click", function(e) {
-    document.querySelector(`.step--3`).classList.remove("step-active")
-    document.querySelector(`.step--4`).classList.add("step-active")
+    document.querySelector(`.step--5`).classList.remove("step-active")
+    document.querySelector(`.step--6`).classList.add("step-active")
     formBtn3.parentElement.style.display = "none"
     document.querySelector(".form--message").innerHTML = `
      <h1 class="form--message-text">Votre CV a bien etait enregistrer.</h1>
@@ -34,7 +61,7 @@ formBtn1.addEventListener("click", function(e) {
   })
 
   const gotoNextForm = (prev, next, stepPrev, stepNext) => {
-    console.log('init');
+    // console.log('init');
     // Get form through the button
     const prevForm = prev.parentElement
     const nextForm = next.parentElement
@@ -55,4 +82,4 @@ formBtn1.addEventListener("click", function(e) {
     }, 1000)
   }
 
-console.log('coucou2');
+// console.log('coucou2');
