@@ -275,9 +275,25 @@ footer.site-footer {
 /* ---------Template Candidat ---------------*/
 
 /*----- Formulaire ------ */
-.error {
+span.error {
     color:red;
     margin-top: 5px;
+    display: block;
+}
+h2.success {
+    color: green;
+    text-align: center;
+    font-size: 2.5em;
+    margin: 100px 0;
+    padding: 15px 20px;
+    background-color: white;
+    border-radius: 50px;
+}
+h2.success span {
+    text-align: center;
+    font-size: .5em;
+    margin: 20px 0;
+    display: block;
 }
 
 /* __Contact__ */
@@ -289,13 +305,14 @@ footer.site-footer {
     text-align: center;
     padding: 200px 0 100px 0;
 }
-#section_contact h1 {
+h1.h1-page-title {
     font-size: 4em;
     font-weight: bold;
     margin-bottom: 50px;
     position: relative;
+    text-align: center;
 }
-#section_contact h1::before {
+h1.h1-page-title::before {
     content: '';
     position: absolute;
     top: 75px;
@@ -348,6 +365,10 @@ footer.site-footer {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+}
+#section_contact form input::placeholder {
+    color: #b1b1b1;
+    font-style: italic;
 }
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
