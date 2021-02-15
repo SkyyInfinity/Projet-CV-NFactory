@@ -6,19 +6,11 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-<<<<<<< HEAD
-RewriteBase /lifepropulse/Projet-LifePropulse-NFactory/
+RewriteBase /wordpress/Projet-LifePropulse-NFactory/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /lifepropulse/Projet-LifePropulse-NFactory/index.php [L]
-=======
-RewriteBase /life_propulse/Projet-LifePropulse-NFactory/
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /life_propulse/Projet-LifePropulse-NFactory/index.php [L]
->>>>>>> f87d18ba902f16e99f69d3051c6f6cba77a8818f
+RewriteRule . /wordpress/Projet-LifePropulse-NFactory/index.php [L]
 </IfModule>
 
 # END WordPress

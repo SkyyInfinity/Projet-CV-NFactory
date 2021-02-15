@@ -6,11 +6,12 @@ get_header();
 ?>
 <section class="site-main candidat">
 <main>
+    <h1 class="h1-page-title">Créer votre CV</h1>
     <!-- STEPS -->
     <div class="stepper">
         <div class="step--1 step-active"><a href="#">1.Informations</a></div>
-        <div class="step--2"><a href="#">2.Formations</a></div>
-        <div class="step--3"><a href="#">3.Dîplomes</a></div>
+        <div class="step--2"><a href="#">2.Dîplomes</a></div>
+        <div class="step--3"><a href="#">3.Formations</a></div>
         <div class="step--4"><a href="#">4.Experiences</a></div>
         <div class="step--5"><a href="#">5.Competences</a></div>
         <div class="step--6"><a href="#">6.Loisirs</a></div>
@@ -132,7 +133,7 @@ get_header();
         <input type="text" placeholder="expérience3" />
         <input type="text" placeholder="expérience4" /> -->
         <button class="form__btn" id="btn-2-prev">Précédent</button>
-        <button class="form__btn" id="btn-2-next">suivant</button>
+        <button class="form__btn" id="btn-2-next">Suivant</button>
     </form>
 
 
@@ -153,8 +154,8 @@ get_header();
         <!-- <input type="text" placeholder="compétence2" />
         <input type="text" placeholder="compétence3" />
         <input type="text" placeholder="compétence4" /> -->
-        <button class="form__btn" id="btn-2-prev">Previous</button>
-        <button class="form__btn" id="btn-2-next">Next</button>
+        <button class="form__btn" id="btn-2-prev">Précedent</button>
+        <button class="form__btn" id="btn-2-next">Suivant</button>
     </form>
 
     <!-- LOISIRS -->
