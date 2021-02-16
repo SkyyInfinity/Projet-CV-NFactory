@@ -310,6 +310,7 @@ footer.site-footer {
 
 .title-form {
     background: -webkit-linear-gradient( 0deg, #FFF000, #FF6400);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -394,6 +395,7 @@ footer.site-footer {
 
 .title-form-connect {
     background: -webkit-linear-gradient( 0deg, #FFF000, #FF6400);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -718,6 +720,51 @@ h1.title-section-cv::before {
     padding: 0 20px;
 }
 
+/* __404__ */
+.error-404 {
+    padding: 25px 0px;
+    text-align: center;
+    position: relative;
+    background-image: url('./asset/img/background-pages.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+.error-404 .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+h1.title-NotFound {
+    padding: 15px;
+    font-size: 15em;
+    font-weight: bold;
+    color: #303030;
+    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    pointer-events: none;
+}
+p.info-NotFound {
+    padding: 10px;
+    font-size: 2em;
+    background-color: #303030;
+    color: white;
+    margin-top: 15px;
+    pointer-events: none;
+}
+.error-404 .btn {
+    margin: 50px 0;
+}
+.error-404 .btn a {
+    font-size: 1.5em;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+.error-404 .flex img {
+    width: 40%;
+    pointer-events: none;
+}
+
+
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 
 @media only screen and (max-width: 1700px) {
@@ -898,6 +945,20 @@ h1.title-section-cv::before {
     #section_home .header-info {
         width: 100%;
     }
+    h1.title-NotFound {
+        padding: 15px;
+        font-size: 10em;
+        font-weight: bold;
+        color: #303030;
+        background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    }
+    p.info-NotFound {
+        padding: 10px;
+        font-size: 1.7em;
+        background-color: #303030;
+        color: white;
+        margin-top: 15px;
+    }
 }
 @media screen and (max-width: 900px) {
     .site-header {
@@ -905,6 +966,9 @@ h1.title-section-cv::before {
         background-position: center right;
         background-repeat: no-repeat;
         background-size: contain;
+    }
+    .error-404 .btn a {
+        font-size: 1.2em;
     }
 }
 
@@ -914,6 +978,23 @@ h1.title-section-cv::before {
         align-items: center;
         display: inline-block;
         width: 80%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .error-404 .flex {
+        flex-direction: column;
+    }
+    .error-404 .flex img {
+        width: 50%;
+        margin-bottom: 15px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    h1.title-NotFound {
+        font-size: 7em;
+    }
+    p.info-NotFound {
+        font-size: 1.4em;
     }
 }
 
