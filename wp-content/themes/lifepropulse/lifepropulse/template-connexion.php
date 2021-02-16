@@ -3,40 +3,62 @@
 Template Name: connexion
 */
 $error = false;
-if(!empty($_POST)){
+if (!empty($_POST)) {
     $user = wp_signon($_POST);
-    if(is_wp_error($user)){
+    if (is_wp_error($user)) {
         $error = $user->get_error_message();
-    }else{
+    } else {
         header('location:profil');
     }
 }
 
 //Si USER est déja connecter alors redirection sur profil
 $user = wp_get_current_user();
-if($user->ID != 0){
+if ($user->ID != 0) {
     header('location:profil');
 }
 get_header();
 ?>
 
 <section class="site-main">
-    <h1>Connexion / User</h1>
+    <div class="wrap">
+        <div class="flex-connexion">
 
-    <?php if ($error):?>
-        <div class="error">
-            <?php echo $error; ?>
+            <div class="image-connexion">
+                <img src="<?php echo get_template_directory_uri() ?> /asset/img/connexion-img.png" alt="">
+            </div>
+
+            <div class="ensemble-form">
+                <h1 class="h1-page-title">Connexion</h1>
+
+                <?php if ($error) : ?>
+                    <div class="error">
+                        <?php echo $error; ?>
+                    </div>
+                <?php endif ?>
+
+                <div class="form-connect">
+                    <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+                        <div class="email-connect champ">
+                            <label for="user_login">Votre Email</label>
+                            <input type="text" name="user_login" id="user_login" maxlength="50" required placeholder="exemple@email.com">
+                        </div>
+                        <div class="mdp champ">
+                            <label for="user_password">Votre Mot de passe</label>
+                            <input type="password" name="user_password" id="user_password" maxlength="50" required placeholder="******">
+                        </div>
+
+                            <div class="envoyer-formulaire champ">
+                                <input class="btn-secondary" type="submit" value="Envoyer">
+                            </div>
+
+                    </form>
+                </div>
+
+            </div>
         </div>
-    <?php endif ?>
+    </div>
 
-    <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
-        <label for="user_login">Email</label>
-        <input type="text" name="user_login" id="user_login" maxlength="50" required>
-        <label for="user_password">Mot de passe</label>
-        <input type="password" name="user_password" id="user_password" maxlength="50" required>
-
-        <input type="submit" value="Envoyer">
-    </form>
 </section>
 
 

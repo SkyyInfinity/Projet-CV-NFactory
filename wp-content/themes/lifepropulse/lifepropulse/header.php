@@ -50,8 +50,8 @@
 						<li><a class="btn-secondary" href='<?php echo bloginfo('url');?>/inscription'>S'inscrire</a></li>
 						<li><a class="btn-primary" href='<?php echo bloginfo('url');?>/connexion'>Se connecter</a></li>
 					<?php else: ?>
-						<li><a class="btn-primary" href='<?php echo bloginfo('url');?>/profil'>Mon profil</a></li>
-						<li><a class="btn-secondary" href='<?php echo bloginfo('url');?>/logout'>Se déconnecter</a></li>
+						<li><a class="btn-secondary" href='<?php echo bloginfo('url');?>/profil'>Mon profil</a></li>
+						<li><a class="btn-primary" href='<?php echo bloginfo('url');?>/logout'>Se déconnecter</a></li>
 					<?php endif; ?>
 				</ul>
 				<div class="burger" id="js_burger">

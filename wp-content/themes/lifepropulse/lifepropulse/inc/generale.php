@@ -98,7 +98,10 @@ add_action( 'widgets_init', 'lifepropulse_widgets_init' );
  */
 function lifepropulse_scripts() {
 	// CSS
+	wp_enqueue_style( 'fontawesome-style', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.css', array(), '5.15.2');
 	wp_enqueue_style( 'lifepropulse-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'fontawesome', 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.css', array(), "3.5.1" );
+
 	// JS
 	wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), '3.5.1', true );
@@ -107,3 +110,20 @@ function lifepropulse_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'lifepropulse_scripts' );
+
+function my_phpmailer_example( $phpmailer ) {
+    $phpmailer->isSMTP();     
+    $phpmailer->Host = 'smtp.gmail.com';
+    $phpmailer->SMTPAuth = true; // Ask it to use authenticate using the Username and Password properties
+    $phpmailer->Port = '465';
+    $phpmailer->Username = 'lifepropulse@gmail.com';
+	// à mettre dans config
+    $phpmailer->Password = 'Azerty@@11';
+ 
+    // Additional settings…
+    $phpmailer->SMTPSecure = 'ssl'; // Choose 'ssl' for SMTPS on port 465, or 'tls' for SMTP+STARTTLS on port 25 or 587
+    //$phpmailer->From = "you@yourdomail.com";
+    //$phpmailer->FromName = "Your Name";
+}
+
+add_action( 'phpmailer_init', 'my_phpmailer_example' );
