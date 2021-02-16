@@ -617,6 +617,98 @@ form input::placeholder {
     font-style: italic;
 }
 
+/* Preset CV */
+.container-cv {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+.wrap-cv {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+}
+.box-cv .head {
+    padding: 30px;
+    background-color: #FF6400;
+    color: white;
+}
+.box-cv .head-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box-cv .head .user-avatar img {
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    padding: 5px;
+}
+.box-cv .head .user-info h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+.box-cv .head .user-info h2 {
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+.flex-cv {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+h1.title-section-cv {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    position: relative;
+}
+h1.title-section-cv::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 5px;
+    background-color: #FF6400;
+}
+.diplome, .formations {
+    padding-right: 15px;
+    width: 50%;
+}
+.competences, .experience {
+    padding-left: 15px;
+    width: 50%;
+}
+.flex-cv h3 {
+    font-size: 1.3em;
+    word-break: break-all;
+}
+.btn-download {
+    text-align: center;
+    padding: 50px 0;
+}
+.btn-download a {
+    text-decoration: none;
+    color: #303030;
+    font-size: 5em;
+    transition: .2s;
+}
+.btn-download a:hover {
+    color: black;
+}
+.btn-download a span {
+    display: block;
+    font-size: .4em;
+}
+.section-cv {
+    padding: 0 20px;
+}
+
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 
 @media only screen and (max-width: 1700px) {
