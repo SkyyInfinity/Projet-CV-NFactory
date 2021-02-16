@@ -618,11 +618,19 @@ form input::placeholder {
 }
 
 /* Preset CV */
+.box-cv {
+    padding: 10px;
+}
 .container-cv {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 15px 0;
+    padding: 15px;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    box-shadow: 0px 0px 9px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 9px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 9px -4px rgba(0,0,0,0.75);
 }
 .wrap-cv {
     width: 100%;
@@ -630,9 +638,10 @@ form input::placeholder {
     margin: 50px auto;
 }
 .box-cv .head {
-    padding: 30px;
+    padding: 15px;
     background-color: #FF6400;
     color: white;
+    border-radius: 10px;
 }
 .box-cv .head-box {
     display: flex;

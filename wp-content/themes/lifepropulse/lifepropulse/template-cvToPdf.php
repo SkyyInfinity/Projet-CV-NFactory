@@ -19,7 +19,7 @@ get_header();
                     </div>
                     <div class="user-info">
                         <h1 class="user-title">John Doe</h1>
-                        <h2 class="user-job">Développeur Web - <span>XX ans</span></h2>
+                        <h2 class="user-job">Développeur Web - <span>24 ans</span></h2>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ get_header();
                     </div>
                 </div>
             </section>
-            <!-- LOISIRS ET ???? -->
+            <!-- LOISIRS ET INFOS -->
             <section class="formationsExperience section-cv">
                 <div class="flex-cv">
                     <div class="formations sect">
@@ -67,9 +67,9 @@ get_header();
                         </ul>
                     </div>
                     <div class="experience sect">
-                        <h1 class="title-section-cv">????</h1>
+                        <h1 class="title-section-cv">Infos</h1>
                         <ul>
-                            <li><h3>?????????????</h3></li>
+                            <li><h3>Permis B</h3></li>
                         </ul>
                     </div>
                 </div>
