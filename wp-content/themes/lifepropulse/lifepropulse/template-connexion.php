@@ -40,14 +40,14 @@ get_header();
                     </div>
                 <?php endif ?>
 
-                <div class="form-connect">
+                <div class="form-connect champ">
                     <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
-                        <div class="email-connect">
+                        <div class="email-connect champ ">
                             <label for="user_login">Votre adresse e-mail:</label>
                             <input type="email" name="user_login" id="user_login" maxlength="50" required placeholder=" e-mail">
                         </div>
-                        <div class="mdp">
-                            <label for="user_password">Votre Mot de passe:</label>
+                        <div class="mdp champ ">
+                            <label  for="user_password">Votre Mot de passe:</label>
                             <input type="password" name="user_password" id="user_password" maxlength="50" required placeholder="Mot de Passe">
                         </div>
 
@@ -68,3 +68,6 @@ get_header();
 
 <?php
 get_footer();
+
+
+
