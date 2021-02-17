@@ -359,6 +359,7 @@ footer.site-footer {
 }
 .flex-connexion :not(input[type=submit]) {
     width: 100%;
+    
 }
 .envoyer-formulaire{
     text-align: center;
@@ -381,6 +382,7 @@ footer.site-footer {
 
 .image-connexion {
     justify-content: flex-end;
+    
 }
 
 .flex-connexion {
@@ -392,12 +394,13 @@ footer.site-footer {
     padding: 50px 0;
 }
 
+
 .title-form-connect {
     background: -webkit-linear-gradient( 0deg, #FFF000, #FF6400);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
-    margin-bottom: 150px;
+    margin-bottom: 70px;
     font-size: 80px;
     font-weight: bold;
 }
@@ -615,7 +618,127 @@ form input[type=submit] {
 form input::placeholder {
     color: #b1b1b1;
     font-style: italic;
+/* Template A Propos */
+
+/* .title-propos {
+    -webkit-background-clip: text;
+    text-align: center;
+    margin-bottom: 70px;
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+} */
+
+.container-title-text-propos{
+    text-align: center;
+    text-justify: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 15px;
+    border: 30px solid;
+    border-image: linear-gradient(10deg,#FFF000, #FF6400) 10;
+    padding: 20px;
+    margin-bottom: 50px;
+    margin-top: 60px;
+
 }
+
+.image-a-propos{
+    text-align: left;
+}
+
+
+
+
+.long-text-propos{
+    justify-content: space-between;
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 50px 0;
+    font-size: 25px;
+    text-align: center;
+    justify-content: center;
+}
+
+.long-text-a-propos{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.image-a-propos2{
+    justify-content: space-between;
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 50px 0;
+    font-size: 25px;
+}
+
+
+/* .center-valeur {
+    -webkit-background-clip: text;
+    text-align: center;
+    margin-bottom: 70px;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+
+} */
+.img-entretien {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.descrpiton-img {
+    font-size: 18px;
+    margin-bottom: 14px;
+    font-style: italic;
+
+}
+
+/* .fleche-gauche {
+    margin-left: 430px;
+    margin-bottom: 50px;
+} */
+
+.fleche-center{
+    text-align: center;
+}
+
+.but-principal {
+    margin-left: 240px;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+
+.title-principal{
+    margin-left: 45px;
+    font-size: 15px;
+}
+
+.but-equipe {
+    margin-top: 30px;
+}
+
+.equipe {
+    margin-top: 20px;
+}
+
+/* .wrap img {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 50px 0;
+} */
+
 
 /* Preset CV */
 .box-cv {
@@ -721,24 +844,36 @@ h1.title-section-cv::before {
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 
 @media only screen and (max-width: 1700px) {
+    .flex {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .flex ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .logo-footer_center {
+        flex-direction: column;
+        justify-content: center;
+    }
     .title-form {
         margin-top: 40px;
         justify-content: center;
     }
 }
 
-@media only screen and (max-width: 1630px) {
+/* @media only screen and (max-width: 1630px) {
     .flex-connexion{
         margin-top: 40px;
         justify-content: center;
         /* width: 100%; */
-        display: flex;
-        flex-direction: column;
+        /* display: flex;
+        flex-direction: column; */
         /* max-width: 1440px; */
-        margin: 0 auto;
+        /* margin: 0 auto;
         padding: 0 15px;
-    }
-}
+    } */
+/* } */
 
 
 @media only screen and (max-width: 1630px) {
@@ -748,6 +883,21 @@ h1.title-section-cv::before {
         
     }
 }
+
+@media only screen and (max-width: 1630px) {
+    .container-title-text-propos {
+        width: 1400px ;
+    }
+}
+
+@media only screen and (max-width: 1580px) {
+    .container-title-text-propos {
+        width: 1000px ;
+    }
+}
+
+
+
 
 @media only screen and (max-width: 1475px) {
     .wrap {
@@ -767,25 +917,44 @@ h1.title-section-cv::before {
         margin: 0 auto;
         padding: 0 15px;
     }
-    .image-inscription {
-        justify-content: center;
-        margin-top: 50px;
+    .image-connexion img {
+        width: 300px;
+
     }
-}
-
-
-@media only screen and (max-width: 1400px) {
     .flex-connexion {
-        /* width: 100%; */
         display: flex;
-        flex-direction: column;
-        /* max-width: 1440px; */
+        flex-direction: column-reverse;
         margin: 0 auto;
         padding: 0 15px;
     }
     .image-connexion {
         justify-content: center;
         margin-top: 50px;
+    }
+    .title-connect
+    {
+        padding: 70px;
+    }
+}
+
+/* 
+@media only screen and (max-width: 1400px) {
+    .flex-connexion {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .image-connexion {
+        justify-content: center;
+        margin-top: 50px;
+    }
+} */
+
+@media only screen and (max-width: 1150px) {
+    .container-title-text-propos {
+        width: 800px ;
+        font-size: 15px;
     }
 }
 @media screen and (max-width: 1180px) {
@@ -899,6 +1068,16 @@ h1.title-section-cv::before {
         width: 100%;
     }
 }
+
+@media only screen and (max-width: 940px) {
+    .container-title-text-propos {
+        width: 700px ;
+        font-size: 7px;
+        
+    }
+}
+
+
 @media screen and (max-width: 900px) {
     .site-header {
         background-image: url('./asset/img/bg-nav-mobile.png');
@@ -917,13 +1096,205 @@ h1.title-section-cv::before {
     }
 }
 
+@media only screen and (max-width: 830px) {
+    .container-title-text-propos {
+        width: 630px ;
+        font-size: 10px;
+    }
+    .long-text-a-propos {
+        font-size: 19px;
+
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    .container-title-text-propos {
+        width: 580px ;
+        font-size: 1px;
+    }
+    .long-text-a-propos {
+        font-size: 15px;
+
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container-title-text-propos {
+        width: 480px ;
+        font-size: 1px;
+    }
+    .long-text-a-propos {
+        font-size: 15px;
+    }
+    .but-principal img{
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container-title-text-propos {
+        width: 440px ;
+        font-size: 1px;
+    }
+    .long-text-a-propos {
+        font-size: 15px;
+    }
+    .but-principal img{
+        width: 300px;
+    }
+    .title-propos {
+        font-size: 30px;
+    }
+}
+
+
+@media only screen and (max-width: 544px) {
+    .container-title-text-propos {
+        width: 400px ;
+        font-size: 1px;
+    }
+    .long-text-a-propos {
+        font-size: 15px;
+    }
+    .but-principal img{
+        width: 200px;
+    }
+    .title-propos {
+        font-size: 20px;
+    }
+    .img-entretien img {
+        width: 200px;
+    }
+}
+
+
+
+@media only screen and (max-width: 530px) {
+    .image-inscription  img {
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+    }
+    input[type=text], input[type=email], input[type=password], textarea {
+        width: 80%;
+    }
+    input[type=submit] {
+        width: 80%;
+    }
+    .flex-connexion {
+        justify-content: center;
+        text-align: center;
+    }
+    .title-connect {
+        font-size: 40px;
+    }
+    .image-connexion {
+        max-width: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
 @media only screen and (max-width: 500px) {
-    .image-inscription img {
+    .image-inscription  img {
         justify-content: center;
         align-items: center;
         width: 70%;
     }
+    input[type=text], input[type=email], input[type=password], textarea {
+       
+        width: 80%;
+    }
+    
+    input[type=submit] {
+        
+        width: 80%;
+        }
 }
+
+
+@media only screen and (max-width: 454px) {
+    .container-title-text-propos {
+        width: 300px ;
+        font-size: 1px;
+    }
+    .image-a-propos img {
+        width: 100px;
+      
+    }
+
+    .long-text-a-propos {
+        font-size: 13px;
+        text-align: center;
+        justify-content: center;
+    }
+    .but-principal img{
+        width: 100px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: -21px;
+    }
+    .title-principal{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: px;
+        font-size: 14px;
+    }
+
+    .title-propos {
+        font-size: 20px;
+    }
+    .img-entretien img {
+        width: 100px;
+    }
+    .but-equipe img{
+        width: 100px;
+    }
+
+}
+
+
+@media only screen and (max-width: 450px) {
+    .image-inscription  img {
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 420px) {
+    .image-inscription  img {
+        margin-left: -99px;
+        margin-top: 29px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .flex-connexion  img {
+        width: 65%;
+        padding-bottom: 20%;
+    }
+}
+
+
+
+@media only screen and (max-width: 380px) {
+    .image-inscription  img {
+        margin-left: -20px;
+        width: 60%;
+    }
+}
+
+
 
 @media screen and (max-width: 350px) {
     .widget_nav .logo img {
@@ -939,6 +1310,36 @@ h1.title-section-cv::before {
         margin: 0;
     }
 }
+
+@media only screen and (max-width: 345px) {
+    .container-title-text-propos {
+        width: 260px ;
+        font-size: 1px;
+    }
+    .long-text-a-propos {
+        font-size: 13px;
+    }
+    .but-principal img{
+        width: 100px;
+        margin-left: -19px;
+    }
+    .title-propos {
+        font-size: 20px;
+    }
+    .img-entretien img {
+        width: 100px;
+    }
+    .title-principal{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-left: -10px;
+        font-size: 14px;
+    }
+}
+
+
+
 
 /* ─────────────────────────────────────────────────────────
 /* ------------------- C S S   E N D  -----------------------
