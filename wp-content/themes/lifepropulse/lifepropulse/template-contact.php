@@ -55,7 +55,7 @@ get_header(); ?>
         <?php
         if($success == true) {
             ?>
-            <h2 class="success">Votre message à bien été envoyer ! <span>Veuillez patientez...</span></h2>
+            <h2 class="success">Votre message a bien été envoyé ! <span>Veuillez patientez...</span></h2>
             <?php
         } else {
             ?>
