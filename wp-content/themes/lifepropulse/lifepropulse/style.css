@@ -385,7 +385,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
 }
 
 .candidat {
@@ -398,7 +397,6 @@ main {
 .form {
     background: #fff;
     text-align: center;
-    /* position: absolute; */
     width: 700px;
     box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
     display: flex;
@@ -464,69 +462,6 @@ input[type="text"] {
     animation: fadeIn 0.8s;
     border-radius: 1rem;
     margin-top: 50px;
-}
-
-.form-active {
-    z-index: 15;
-    display: block;
-}
-
-.form-active-animate {
-    animation: moveRight 1s;
-}
-
-.form-inactive {
-    display: block;
-    animation: moveLeft 1s;
-}
-
-.step-active {  
-    color: #fff;
-    position: relative;
-    z-index: 2;
-}
-
-.step-active::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
-    width: 75px;
-    height: 3px;
-    z-index: 1;
-}
-
-@keyframes moveRight {
-    0% {
-        transform: translateX(-27rem) scale(0.9);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0rem) scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes moveLeft {
-    0% {
-        transform: translateX(0rem) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(27rem) scale(0.9);
-        opacity: 0;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */

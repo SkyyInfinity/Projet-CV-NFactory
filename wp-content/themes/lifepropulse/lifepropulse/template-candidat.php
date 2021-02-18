@@ -559,8 +559,7 @@ get_header();
                     <input type="text" name="cr_cv_name" value="">
                     <p class="error"><?php if (!empty($errors['create_cv'])) {echo $errors['create_cv'];} ?></p>
                     <p class="success"><?php if (!empty($success['create_cv'])) {echo $success['create_cv'];} ?></p>
-                    <button class="form__btn" id="btn-1">Suivant</button>
-                    <!-- <input type="submit" class="form__btn" id="btn-1" value="Crée" name="create_cv"> -->
+                    <input type="submit" class="form__btn" id="btn-1" value="Crée" name="create_cv">
                 </form>
 
                 <!-- selectionner un CV -->
@@ -588,8 +587,6 @@ get_header();
                     </table>
                     <p class="error"><?php if(!empty($errors['delete_cv'])) {echo $errors['delete_cv'];} ?></p>
                     <p class="success"><?php if(!empty($success['delete_cv'])) {echo $success['delete_cv'];} ?></p>
-                    <button class="form__btn" id="btn-2-prev">Précédent</button>
-                    <button class="form__btn" id="btn-2-next">Suivant</button>
                 </form>
 
 
@@ -603,7 +600,7 @@ get_header();
                     </div>
                     <div class="champform">
                         <h2>Information perso :</h2>
-                        <!-- <h3>Modifier si besoin</h3> -->
+                        <h3>Modifier si besoin</h3>
                         <h4><?php if (!empty($errors['submit_name'])) {echo $errors['submit_name'];} ?></h4>
                         <label for="">Votre nom prénom </label>
                         <input type="text" name="firstname" placeholder="" value="<?php if (!empty($_POST['firstname'])) {echo $_POST['firstname'];} else {echo $user->display_name;} ?>">
@@ -619,8 +616,6 @@ get_header();
                         <p>Votre date naissance : <?php if (!empty($_POST['birthdate'])) {echo $_POST['birthdate'];} else {echo $find_meta[0];} ?></p>
                         <p>Votre email : <?php if (!empty($_POST['email'])) {echo $_POST['email'];} else {echo $user->user_email;} ?></p>
                     </div>
-                    <button class="form__btn" id="btn-3-prev">Précédent</button>
-                    <button class="form__btn" id="btn-3-next">Suivant</button>
                 </form>
 
                 <!-- DIPLOMES -->
@@ -676,7 +671,7 @@ get_header();
                                 <option value="non">Non</option>
                             </select>
                             <p class="error"><?php if (!empty($errors['diplome_send'])) {echo $errors['diplome_send'];} ?></p>
-                            <!-- <input type="submit" name="diplome_send" value="Envoyer"> -->
+                            <input type="submit" name="diplome_send" value="Envoyer">
                         </form>
                     </div>
                     <h1>------------------------</h1>
@@ -691,10 +686,7 @@ get_header();
                         } ?>
                     </ul>
                     <p class="error"><?php if (!empty($errors['diplome_delete'])) {echo $errors['diplome_delete'];} ?></p>
-                    <button class="form__btn" id="btn-4-prev">Précédent</button>
-                    <button class="form__btn" id="btn-4-next">Suivant</button>
                 </form>
-
 
                         <!-- Expériences pro -->
                         <form class="form">
@@ -731,12 +723,9 @@ get_header();
                             ?>
                         </ul>
                     <p class="error"><?php if (!empty($errors['diplome_delete'])) {echo $errors['diplome_delete'];} ?></p>
-                    <button class="form__btn" id="btn-5-prev">Précédent</button>
-                    <button class="form__btn" id="btn-5-next">Suivant</button>
                 </form>
 
                         <!-- Competences -->
-
                         <form class="form">
                             <h1>------------------------</h1>
                             <h1>Compétence</h1>
@@ -761,8 +750,6 @@ get_header();
                                     echo '</form>';
                                 } ?>
                             </ul>
-                            <button class="form__btn" id="btn-6-prev">Précédent</button>
-                            <button class="form__btn" id="btn-6-next">Suivant</button>
                         </form>
 
                         <!-- null
@@ -774,13 +761,11 @@ get_header();
                                 <p class="form--header-text">
                                     Dites-nous en plus à propos de vos compétences. </p>
                             </div>
-
                             <button class="form__btn" id="btn-5-prev">Précédent</button>
                             <button class="form__btn" id="btn-5-next">Suivant</button>
                         </form> -->
 
                         <!-- LOISIRS -->
-
                         <form class="form">
                             <h1>------------------------</h1>
                             <h1>Loisirs</h1>
@@ -806,8 +791,6 @@ get_header();
                                 } ?>
                             </ul>
                         </form>
-
-                        <div class="form--message"></div>
             </main>
         <?php } else { ?>
             <h1>Veuillez choisir un cv</h1>
