@@ -58,7 +58,7 @@ get_header(); ?>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/aurore.png" alt="">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/dylan.jpg" alt="">
-                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/valentin.png" alt="">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/theo.png" alt="">
 
 

@@ -1091,6 +1091,32 @@ p.info-NotFound {
     color: white;
 }
 
+/* __PROFIL__ */
+.profil-page {
+    padding: 200px 200px;
+}
+.info-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.info-profil p {
+    font-size: 1.6em;
+    line-height: 1.2em;
+}
+.info-profil p span {
+    font-weight: bold;
+}
+.btn-recruteur {
+    margin: 50px 0;
+}
+.btn-recruteur a {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 
 @media only screen and (max-width: 1700px) {
@@ -1378,6 +1404,15 @@ p.info-NotFound {
     }
     h1.h1-page-title::before {
         display: none;
+    }
+    .box-cv .head-box, .flex-cv {
+        flex-direction: column;
+        text-align: center;
+    }
+    .competences, .loisirs, .diplome, .experience, .infos {
+        padding: 0;
+        width: 100%;
+        text-align: center;
     }
 }
 
