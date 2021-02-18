@@ -4,6 +4,8 @@ Template Name: candidat
 */
 get_header();
 ?>
+
+<div class="wrap2">
 <section class="site-main candidat">
 <main>
     <h1 class="h1-page-title">Créer votre CV</h1>
@@ -17,7 +19,23 @@ get_header();
         <div class="step--6"><a href="#">6.Loisirs</a></div>
     </div>
 
-    <form class="form form-active">
+    <form class="form form-active" action="" method="POST">
+        <div class="form--header-container">
+            <h1 class="form--header-title">
+                Crée votre CV rapidement 
+            </h1>
+            <p class="form--header-text">
+                Dites-nous le nom de votre CV.
+            </p>
+        </div>
+        <label for="cr_cv_name">Entrée le nom de votre CV : </label>
+        <input type="text" name="cr_cv_name" value="">
+        <p class="error"><?php if(!empty($errors['create_cv'])) {echo $errors['create_cv'];} ?></p>
+        <p class="success"><?php if(!empty($success['create_cv'])) {echo $success['create_cv'];} ?></p>
+        <input type="submit" class="form__btn" id="btn-1" value="Crée" name="create_cv">
+    </form>
+
+    <form class="form">
         <div class="form--header-container">
             <h1 class="form--header-title">
                 Vos informations personnelles
@@ -197,5 +215,6 @@ get_header();
     <div class="form--message"></div>
 </main>
 </section>
+</div>
 <?php
 get_footer();
