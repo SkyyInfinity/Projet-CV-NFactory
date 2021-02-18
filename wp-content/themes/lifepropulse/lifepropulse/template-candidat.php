@@ -6,9 +6,15 @@ get_header();
 ?>
 
 <div class="wrap2">
-<section class="site-main candidat">
+<section class="site-main candidat" id="formulaire">
 <main>
+
+
+
     <h1 class="h1-page-title">Créer votre CV</h1>
+
+
+
     <!-- STEPS -->
     <div class="stepper">
         <div class="step--1 step-active"><a href="#">1.Informations</a></div>
@@ -18,6 +24,8 @@ get_header();
         <div class="step--5"><a href="#">5.Competences</a></div>
         <div class="step--6"><a href="#">6.Loisirs</a></div>
     </div>
+
+
 
     <form class="form form-active" action="" method="POST">
         <div class="form--header-container">
@@ -34,6 +42,50 @@ get_header();
         <p class="success"><?php if(!empty($success['create_cv'])) {echo $success['create_cv'];} ?></p>
         <input type="submit" class="form__btn" id="btn-1" value="Crée" name="create_cv">
     </form>
+
+
+
+    <!-- <form class="form" action="" method="POST">
+        <div class="form--header-container">
+            <h1 class="form--header-title">
+                Selectionner un CV
+            </h1>
+            <p class="form--header-text"></p>
+        </div>
+    </form> -->
+
+
+    <form class="form" action="" method="POST">
+        <div class="form--header-container">
+            <h1 class="form--header-title">
+                Modifier un CV
+            </h1>
+            <p class="form--header-text"></p>
+        </div>
+        <div class="champform">
+            <h2>Information perso :</h2>
+            <!-- <h3>Modifier si besoin</h3> -->
+
+            <h4><?php if(!empty($errors['submit_name'])) {echo $errors['submit_name'];} ?></h4>
+
+            <label for="">Votre nom prénom </label>
+            <input type="text" name="firstname" placeholder="" value="<?php if(!empty($_POST['firstname'])){echo $_POST['firstname'];}else{echo $user->display_name;} ?>">
+            <p class="error"><?php if(!empty($errors['firstname'])) {echo $errors['firstname'];} ?></p>
+
+            <label for="">Votre email </label>
+            <input type="mail" name="email" placeholder="" value="<?php if(!empty($_POST['email'])){echo $_POST['email'];}else{echo $user->user_email;} ?>" required>
+            <p></p><label for="">Votre date de naissance </label>
+            <input type="date" name="birthdate" placeholder="" value="<?php if(!empty($_POST['birthdate'])){ echo $_POST['birthdate'];} else{echo $find_meta[0]; }?>" required>
+            <p></p>
+            <button class="form__btn" id="btn-2-prev">Précédent</button>
+            <input type="submit" class="form__btn" id="btn-2-next" value="Ajouter" name="submit_name">
+        </div>
+    </form>
+    <div>
+        <p>Votre nom prénom : <?php if(!empty($_POST['firstname'])){echo $_POST['firstname'];}else{echo $user->display_name;} ?></p>
+        <p>Votre date naissance : <?php if(!empty($_POST['birthdate'])){ echo $_POST['birthdate'];} else{echo $find_meta[0]; }?></p>
+        <p>Votre email : <?php if(!empty($_POST['email'])){echo $_POST['email'];}else{echo $user->user_email;} ?></p>
+    </div>
 
     <form class="form">
         <div class="form--header-container">
