@@ -109,8 +109,11 @@ function lifepropulse_scripts() {
     wp_enqueue_script('kendo', 'https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js', array(), _S_VERSION, true );
     wp_enqueue_script('js', get_template_directory_uri() . '/asset/js/main.js', array(), '1.0.0', true );
     wp_enqueue_script('navigation', get_template_directory_uri() . '/asset/js/navigation.js', array(), '1.0.0', true );
+<<<<<<< HEAD
     wp_enqueue_script('pdf', get_template_directory_uri() . '/asset/js/pdf.js', array(), '1.0.0', true );
 
+=======
+>>>>>>> style_form
 }
 add_action( 'wp_enqueue_scripts', 'lifepropulse_scripts' );
 
