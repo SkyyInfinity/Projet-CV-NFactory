@@ -37,7 +37,7 @@ get_header();
                     </div>
                 <?php endif ?>
 
-                <div class="form-connect">
+                <div class="form-connect champ">
                     <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
                         <div class="email-connect champ">
                             <label for="user_login">Votre Email</label>
