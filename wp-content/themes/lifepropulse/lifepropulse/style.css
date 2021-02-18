@@ -1119,24 +1119,6 @@ p.info-NotFound {
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 
-@media only screen and (max-width: 1700px) {
-    .flex {
-        flex-direction: column;
-        justify-content: center;
-    }
-    .flex ul {
-        flex-direction: column;
-        justify-content: center;
-    }
-    .logo-footer_center {
-        flex-direction: column;
-        justify-content: center;
-    }
-    .title-form {
-        margin-top: 40px;
-        justify-content: center;
-    }
-}
 
 /* @media only screen and (max-width: 1630px) {
     .flex-connexion{
