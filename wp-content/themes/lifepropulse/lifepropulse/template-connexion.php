@@ -8,14 +8,14 @@ if (!empty($_POST)) {
     if (is_wp_error($user)) {
         $error = $user->get_error_message();
     } else {
-        header('location:profil');
+        redirection('profil');
     }
 }
 
 //Si USER est déja connecter alors redirection sur profil
 $user = wp_get_current_user();
 if ($user->ID != 0) {
-    header('location:profil');
+    redirection('profil');
 }
 get_header();
 ?>
@@ -47,18 +47,19 @@ get_header();
                             <label for="user_password">Votre Mot de passe</label>
                             <input type="password" name="user_password" id="user_password" maxlength="50" required placeholder="******">
                         </div>
-
-                            <div class="envoyer-formulaire champ">
-                                <input class="btn-secondary" type="submit" value="Envoyer">
-                            </div>
-
+                        <div class="forgot-psswd champ">
+                            <a class="forgot-psswd" href="<?= esc_url(home_url('mot-de-passe-oublie')); ?>" alt="<?php esc_attr_e( 'Lost Password', 'textdomain' ); ?>">
+                                <?php esc_html_e( 'Mot de passe oublié ?', 'textdomain' ); ?>
+                            </a>
+                        </div>
+                        <div class="envoyer-formulaire champ">
+                            <input class="btn-secondary" type="submit" value="Envoyer">
+                        </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
-
 </section>
 
 
