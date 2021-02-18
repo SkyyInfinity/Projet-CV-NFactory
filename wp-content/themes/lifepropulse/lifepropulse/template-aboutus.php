@@ -52,7 +52,7 @@ get_header(); ?>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/fleche-center.png" alt="">
                 </div>
                 <div class="but-equipe">
-                    <h1 class="equipe">Notre équipe a hâte de vous recontrer, n'attendez plus !</h1><br>
+                    <h1 class="equipe">Notre équipe a hâte de vous rencontrer, n'attendez plus !</h1><br>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/aurore.png" alt="">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/dylan.jpg" alt="">
