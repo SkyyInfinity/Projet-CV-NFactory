@@ -84,10 +84,11 @@ if (!empty($_GET['id'])) {
                             <img src="<?= get_template_directory_uri(); ?>/asset/img/user.svg" alt="user-avatar">
                         </div>
                         <div class="user-info">
-                            <h1 class="user-title"><?= $single_user[0]['display_name'] ?></h1>
+                            <h1 class="user-title"><?php if(!empty($single_user[0])){echo $single_user[0]['display_name'];}; ?></h1>
                             <h2 class="user-job">Développeur Web - <span><?php
+                            
                             $dateBirth = get_user_meta($single_user[0]['id'], 'birthday');
-                            echo ageCalculator($dateBirth[0]);
+                            if(!empty($dateBirth)){echo ageCalculator($dateBirth[0]);};
                              ?> ans</span></h2>
                         </div>
                     </div>
@@ -100,8 +101,7 @@ if (!empty($_GET['id'])) {
                             <ul>
                                 <li>
                                     <h3><?php if (!empty($single_diplome[0])) {
-                                        $dateTSD = strtotime($single_experience[0]['date']);
-                                            echo date('d/m/Y', $dateTSD) . ' - ' . mb_ucfirst($single_diplome[0]['diplome_type']) . ' ' . mb_ucfirst($single_diplome[0]['diplome_name']);
+                                            if(!empty($single_experience[0]['date'])){ $dateTSD = strtotime($single_experience[0]['date']); echo date('d/m/Y', $dateTSD);} if(!empty($single_diplome[0])){ echo ' - ' . mb_ucfirst($single_diplome[0]['diplome_type']) . ' ' . mb_ucfirst($single_diplome[0]['diplome_name']);};
                                         }; ?><span><br><?php if (!empty($single_diplome[0])) {
                                                         echo mb_ucfirst($single_diplome[0]['etablissement']);
                                                     }; ?></span> (<?php if (!empty($single_diplome[0])) {
