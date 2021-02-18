@@ -541,27 +541,26 @@
     }
 get_header();
 ?>
+<main class="imgCandidat">
     <div class="wrap2">
         <section class="site-main candidat" id="formulaire">
             <main>
-            <h1 class="h1-page-title">Créer votre CV</h1>
-                <!-- création de CV -->
+            <div class="box box_cv">
+                <h1>Créer votre CV</h1>
+                <p>Dites-nous le nom de votre CV.</p>
                 <form class="form form-active" action="" method="POST">
-                    <div class="form--header-container">
-                        <h1 class="form--header-title">
-                            Crée votre CV rapidement
-                        </h1>
-                        <p class="form--header-text">
-                            Dites-nous le nom de votre CV.
-                        </p>
+                    <div>
+                        <label for="cr_cv_name">Entrée le nom de votre CV : </label>
+                        <input class="form_btn" type="text" name="cr_cv_name" value=""> 
                     </div>
-                    <label for="cr_cv_name">Entrée le nom de votre CV : </label>
-                    <input type="text" name="cr_cv_name" value="">
-                    <p class="error"><?php if (!empty($errors['create_cv'])) {echo $errors['create_cv'];} ?></p>
-                    <p class="success"><?php if (!empty($success['create_cv'])) {echo $success['create_cv'];} ?></p>
-                    <input type="submit" class="form__btn" id="btn-1" value="Crée" name="create_cv">
+                    <div>
+                        <p class="error"><?php if (!empty($errors['create_cv'])) {echo $errors['create_cv'];} ?></p>
+                        <p class="success"><?php if (!empty($success['create_cv'])) {echo $success['create_cv'];} ?></p>
+                    </div>
+                    <div>
+                        <input type="submit" class="form__btn" id="btn-1" value="Crée" name="create_cv">
+                    </div>
                 </form>
-
                 <!-- selectionner un CV -->
                 <form class="form">
                 <h1>Selectionner un CV</h1>
@@ -574,42 +573,40 @@ get_header();
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-                        foreach($list_cv as $one_cv){
-                            echo '<form action="" method="post">';
-                                echo '<tr><tb>'. $one_cv['name'] .'</tb>';
-                                echo '<tb>'. $one_cv['date'] .'</tb>';
-                                echo '<input name="delete_id" type="hidden" value="'.$one_cv['id'].'">';
-                                echo '<tb><input name="delete_cv" type="submit" value="DELETE"></tb></tr><br>';
-                            echo '</form>';
-                        } ?>
+                            <?php
+                            foreach($list_cv as $one_cv){
+                                echo '<form action="" method="POST">';
+                                    echo '<tr><tb>'. $one_cv['name'] .'</tb>';
+                                    echo '<tb>'. $one_cv['date'] .'</tb>';
+                                    echo '<input name="delete_id" type="hidden" value="'.$one_cv['id'].'">';
+                                    echo '<tb><input name="delete_cv" class="form__btn" type="submit" value="DELETE"></tb></tr><br>';
+                                echo '</form>';
+                            } ?>
                         </tbody>
                     </table>
-                    <p class="error"><?php if(!empty($errors['delete_cv'])) {echo $errors['delete_cv'];} ?></p>
-                    <p class="success"><?php if(!empty($success['delete_cv'])) {echo $success['delete_cv'];} ?></p>
-                </form>
+                <p class="error"><?php if(!empty($errors['delete_cv'])) {echo $errors['delete_cv'];} ?></p>
+                <p class="success"><?php if(!empty($success['delete_cv'])) {echo $success['delete_cv'];} ?></p>
+            </div>
 
 
                 <!-- Modifier un CV  -->
+            <div class="box box_ip">
                 <form class="form" action="" method="POST">
-                    <div class="form--header-container">
-                        <h1 class="form--header-title">
-                            Modifier un CV
-                        </h1>
-                        <p class="form--header-text"></p>
-                    </div>
+                    <h1>Modifier un CV</h1>
+                    <p class="form--header-text"></p>
                     <div class="champform">
                         <h2>Information perso :</h2>
                         <h3>Modifier si besoin</h3>
                         <h4><?php if (!empty($errors['submit_name'])) {echo $errors['submit_name'];} ?></h4>
                         <label for="">Votre nom prénom </label>
-                        <input type="text" name="firstname" placeholder="" value="<?php if (!empty($_POST['firstname'])) {echo $_POST['firstname'];} else {echo $user->display_name;} ?>">
+                        <input type="text" class="form_btn" name="firstname" placeholder="" value="<?php if (!empty($_POST['firstname'])) {echo $_POST['firstname'];} else {echo $user->display_name;} ?>">
                         <p class="error"><?php if (!empty($errors['firstname'])) {echo $errors['firstname'];} ?></p>
                         <label for="">Votre email </label>
-                        <input type="mail" name="email" placeholder="" value="<?php if (!empty($_POST['email'])) {echo $_POST['email'];} else {echo $user->user_email;} ?>" required>
+                        <input type="mail" class="form_btn" name="email" placeholder="" value="<?php if (!empty($_POST['email'])) {echo $_POST['email'];} else {echo $user->user_email;} ?>" required>
                         <p></p><label for="">Votre date de naissance </label>
-                        <input type="date" name="birthdate" placeholder="" value="<?php if (!empty($_POST['birthdate'])) {echo $_POST['birthdate'];} else {echo $find_meta[0];} ?>" required>
+                        <input type="date" class="form_btn" name="birthdate" placeholder="" value="<?php if (!empty($_POST['birthdate'])) {echo $_POST['birthdate'];} else {echo $find_meta[0];} ?>" required>
                         <p></p>
+                        <input class="form__btn" type="submit" name="submit_name" value="Modifier">
                     </div>
                     <div>
                         <p>Votre nom prénom : <?php if (!empty($_POST['firstname'])) {echo $_POST['firstname'];} else {echo $user->display_name;} ?></p>
@@ -617,44 +614,45 @@ get_header();
                         <p>Votre email : <?php if (!empty($_POST['email'])) {echo $_POST['email'];} else {echo $user->user_email;} ?></p>
                     </div>
                 </form>
+            </div>
 
-                <!-- DIPLOMES -->
-                <form class="form">
-                    <div>
-                        <h1>------------------------</h1>
-                        <h1>Selectionner le CV :</h1>
+            <div class="box box_select">
+                <div>
+                    <h1>Selectionner un diplôme:</h1>
                         <?php
                         foreach ($list_cv as $one_cv) {
                             echo '<form action="" method="post">';
                             echo '<input name="select_id" type="hidden" value="' . $one_cv['id'] . '">';
-                            echo '<input name="select_cv" type="submit" value="' . $one_cv['name'] . '">';
+                            echo '<input name="select_cv" class="form__btn" type="submit" value="' . $one_cv['name'] . '">';
                             echo '</form>';
                         } ?>
-                        <p class="error"><?php if (!empty($errors['select_cv'])) {echo $errors['select_cv'];} ?></p>
-                        <p class="success"><?php if (!empty($success['select_cv'])) {echo $success['select_cv'];} ?></p>
-                        <h1>------------------------</h1>
-                    </div>
+                    <p class="error"><?php if (!empty($errors['select_cv'])) {echo $errors['select_cv'];} ?></p>
+                    <p class="success"><?php if (!empty($success['select_cv'])) {echo $success['select_cv'];} ?></p>
+                </div>
+            </div>
+
+                <div class="box box_diplome">
                     <div class="champform">
                     <h1>------------------------</h1>
                     <?php if (!empty($_SESSION["select_cv"]) and in_array($_SESSION["select_cv"], $select_listcv)) { ?>
                         <form action="" method="POST">
-                            <h2>diplome nb de diplome : <?= $countDiplome ?></h2>
+                            <h1>diplome nb de diplome : <?= $countDiplome ?></h1>
                             <label for="diplome_name">Nom du diplôme </label>
-                            <input type="text" name="diplome_name" required>
+                            <input type="text" class="form_btn" name="diplome_name" required>
                             <p class="error"><?php if (!empty($errors['diplome_name'])) {echo $errors['diplome_name'];} ?></p>
 
                             <label for="diplome_type">Type du diplôme </label>
-                            <input type="text" name="diplome_type" required>
+                            <input type="text" class="form_btn" name="diplome_type" required>
                             <p class="error"><?php if (!empty($errors['diplome_type'])) {echo $errors['diplome_type'];} ?></p>
 
                             <label for="diplome_date">Date de l'obtention diplôme </label>
-                            <input type="date" name="diplome_date" required>
+                            <input type="date" class="form_btn" name="diplome_date" required>
 
                             <label for="diplome_duree">Durée du diplôme en années</label>
-                            <input type="number" name="diplome_duree" required>
+                            <input class="form_btn" type="number" name="diplome_duree" required>
 
                             <label for="diplome_lieu">Etablissement </label>
-                            <input type="text" name="diplome_lieu" required>
+                            <input class="form_btn" type="text" name="diplome_lieu" required>
                             <p class="error"><?php if (!empty($errors['diplome_lieu'])) {echo $errors['diplome_lieu'];} ?></p>
 
                             <label for="">Apprentissage </label>
@@ -671,126 +669,97 @@ get_header();
                                 <option value="non">Non</option>
                             </select>
                             <p class="error"><?php if (!empty($errors['diplome_send'])) {echo $errors['diplome_send'];} ?></p>
-                            <input type="submit" name="diplome_send" value="Envoyer">
+                            <input class="form__btn" type="submit" class="form_btn" name="diplome_send" value="Envoyer">
                         </form>
                     </div>
-                    <h1>------------------------</h1>
                     <h1>Listings des diplomes</h1>
                     <ul>
                         <?php foreach ($Diplomeperusers as $Diplomeperuser) {
                         echo '<form action="" method="POST">';
                             echo '<input name="diplome_delete_cvid" type="hidden" value="' . $Diplomeperuser['cv_id'] . '">';
                             echo '<input name="diplome_delete_id" type="hidden" value="' . $Diplomeperuser['id'] . '">';
-                            echo '<li>' . $Diplomeperuser['diplome_name'] . ' fait le ' . $Diplomeperuser['diplome_duree'] . ' <input name="diplome_delete_submit" type="submit" value="DELETE"></li>';
+                            echo '<li>' . $Diplomeperuser['diplome_name'] . ' fait le ' . $Diplomeperuser['diplome_duree'] . ' <input class="form__btn" name="diplome_delete_submit" class="form_btn" type="submit" value="DELETE"></li>';
                         echo '</form>';
                         } ?>
                     </ul>
                     <p class="error"><?php if (!empty($errors['diplome_delete'])) {echo $errors['diplome_delete'];} ?></p>
-                </form>
+                    </form>
+                </div>
 
-                        <!-- Expériences pro -->
-                        <form class="form">
-                        <h1>------------------------</h1>
-                        <h1>Expérience pro</h1>
-                        <h1>------------------------</h1>
-                            <form action="" method="POST">
+                <div class="box box_exp">
+                    <h1>Expérience pro</h1>
+                        <form action="" method="POST">
 
-                                <label for="competence_date">Date de l'expérience </label>
-                                <input type="date" name="experience_date">
+                            <label for="competence_date">Date de l'expérience </label>
+                            <input class="form_btn" type="date" name="experience_date">
 
-                                <label for="competence_duree">Durée de l'expérience en mois</label>
-                                <input type="number" name="experience_duree" placeholder="">
+                            <label for="competence_duree">Durée de l'expérience en mois</label>
+                            <input class="form_btn" type="number" name="experience_duree" placeholder="">
 
-                                <label for="competence_entreprise">Entreprise </label>
-                                <input type="text" name="experience_entreprise">
+                            <label for="competence_entreprise">Entreprise </label>
+                            <input class="form_btn" type="text" name="experience_entreprise">
 
-                                <label for="competence_missions">Missions demandées</label>
-                                <textarea name="experience_missions"></textarea>
+                            <label for="competence_missions">Missions demandées</label>
+                            <textarea name="experience_missions"></textarea>
 
-                                <input type="submit" name="experience_send">
-                            </form>
-                        <h1>------------------------</h1>
-                        <h1>------------------------</h1>
+                            <input class="form__btn" type="submit" name="experience_send">
+                        </form>
                         <h1>Listings des expérience</h1>
                         <ul>
                             <?php foreach ($experienceperusers as $experienceperuser) {
                                 echo '<form action="" method="POST">';
                                 echo '<input name="experience_delete_cvid" type="hidden" value="' . $experienceperuser['cv_id'] . '">';
                                 echo '<input name="experience_delete_id" type="hidden" value="' . $experienceperuser['id'] . '">';
-                                echo '<li>' . $experienceperuser['entreprise'] . ' <input name="experience_delete_submit" type="submit" value="DELETE"></li>';
+                                echo '<li>' . $experienceperuser['entreprise'] . ' <input class="form__btn" name="experience_delete_submit" type="submit" value="DELETE"></li>';
                                 echo '</form>';
                             }
                             ?>
                         </ul>
                     <p class="error"><?php if (!empty($errors['diplome_delete'])) {echo $errors['diplome_delete'];} ?></p>
-                </form>
+                </div>
 
-                        <!-- Competences -->
-                        <form class="form">
-                            <h1>------------------------</h1>
-                            <h1>Compétence</h1>
-                            <h1>------------------------</h1>
-                            <div class="champform">
-                                <form action="" method="POST">
-                                    <label for="competence_type">Type de compétence </label>
-                                    <input type="text" name="competence_type">
-                                    <label for="competence_name">Nom de compétence </label>
-                                    <input type="text" name="competence_name">
-                                    <input type="submit" name="competence_send" value="competence">
-                                </form>
-                            </div>
-                            <h1>------------------------</h1>
-                            <h1>Listings des compétence</h1>
-                            <ul>
-                                <?php foreach ($competenceusers as $competenceuser) {
-                                    echo '<form action="" method="POST">';
-                                    echo '<input name="competence_delete_cvid" type="hidden" value="' . $competenceuser['cv_id'] . '">';
-                                    echo '<input name="competence_delete_id" type="hidden" value="' . $competenceuser['id'] . '">';
-                                    echo '<li>' . $competenceuser['competence_name'] . ' <input name="competence_delete_submit" type="submit" value="DELETE"></li>';
-                                    echo '</form>';
-                                } ?>
-                            </ul>
+                <div class="box box_comp">
+                    <h1>Compétence</h1>
+                    <div class="champform">
+                        <form action="" method="POST">
+                            <label for="competence_type">Type de compétence </label>
+                            <input class="form_btn" type="text" name="competence_type">
+                            <label for="competence_name">Nom de compétence </label>
+                            <input class="form_btn" type="text" name="competence_name">
+                            <input class="form__btn" type="submit" name="competence_send" value="competence">
                         </form>
+                    </div>
+                    <h1>Listings des compétence</h1>
+                    <ul>
+                        <?php foreach ($competenceusers as $competenceuser) {
+                        echo '<form action="" method="POST">';
+                        echo '<input name="competence_delete_cvid" type="hidden" value="' . $competenceuser['cv_id'] . '">';
+                        echo '<input name="competence_delete_id" type="hidden" value="' . $competenceuser['id'] . '">';
+                        echo '<li>' . $competenceuser['competence_name'] . ' <input class="form__btn" name="competence_delete_submit" type="submit" value="DELETE"></li>';
+                        echo '</form>';
+                        } ?>
+                    </ul>
 
-                        <!-- null
-                        <form class="form">
-                            <div class="form--header-container">
-                                <h1 class="form--header-title">
-                                    Vos compétences
-                                </h1>
-                                <p class="form--header-text">
-                                    Dites-nous en plus à propos de vos compétences. </p>
-                            </div>
-                            <button class="form__btn" id="btn-5-prev">Précédent</button>
-                            <button class="form__btn" id="btn-5-next">Suivant</button>
-                        </form> -->
 
-                        <!-- LOISIRS -->
-                        <form class="form">
-                            <h1>------------------------</h1>
-                            <h1>Loisirs</h1>
-                            <h1>------------------------</h1>
-                            <div class="champform">
-                                <form action="" method="POST">
-                                    <label for="loisir_send">Nom du loisir </label>
-                                    <input type="text" name="loisir_name">
-                                    <input type="submit" name="loisir_send">
-                                </form>
-                            </div>
-
-                            <h1>------------------------</h1>
-                            <h1>List des loisirs</h1>
-
-                            <ul>
-                                <?php foreach ($loisirusers as $loisiruser) {
-                                    echo '<form action="" method="POST">';
-                                    echo '<input name="loisir_delete_cvid" type="hidden" value="' . $loisiruser['cv_id'] . '">';
-                                    echo '<input name="loisir_delete_id" type="hidden" value="' . $loisiruser['id'] . '">';
-                                    echo '<li>' . $loisiruser['loisir_name'] . ' <input name="loisir_delete_submit" type="submit" value="DELETE"></li>';
-                                    echo '</form>';
-                                } ?>
-                            </ul>
+                    <h1>Loisirs</h1>
+                    <div class="champform">
+                        <form action="" method="POST">
+                            <label for="loisir_send">Nom du loisir </label>
+                            <input class="form_btn" type="text" name="loisir_name">
+                            <input class="form__btn" type="submit" name="loisir_send">
                         </form>
+                    </div>
+                    <h1>List des loisirs</h1>
+                    <ul>
+                        <?php foreach ($loisirusers as $loisiruser) {
+                            echo '<form action="" method="POST">';
+                            echo '<input name="loisir_delete_cvid" type="hidden" value="' . $loisiruser['cv_id'] . '">';
+                            echo '<input name="loisir_delete_id" type="hidden" value="' . $loisiruser['id'] . '">';
+                            echo '<li>' . $loisiruser['loisir_name'] . ' <input class="form__btn" name="loisir_delete_submit" type="submit" value="DELETE"></li>';
+                            echo '</form>';
+                        }?>
+                    </ul>
+                </div>
             </main>
         <?php } else { ?>
             <h1>Veuillez choisir un cv</h1>
