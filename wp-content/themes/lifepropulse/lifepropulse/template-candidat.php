@@ -92,7 +92,6 @@ get_header();
         <button class="form__btn" id="btn-2-prev">Précédent</button>
         <button class="form__btn" id="btn-2-next">suivant</button>
     </form>
-
     <!-- FORMATIONS -->
     <form class="form">
         <div class="form--header-container">
@@ -130,10 +129,9 @@ get_header();
         <!-- <input type="text" placeholder="formation2" />
         <input type="text" placeholder="formation3" />
         <input type="text" placeholder="formatione4" /> -->
-        <button class="form__btn" id="btn-3-prev">Previous</button>
-        <button class="form__btn" id="btn-3-next">Next</button>
+        <button class="form__btn" id="btn-3-prev">Précédent</button>
+        <button class="form__btn" id="btn-3-next">Suivant</button>
     </form>
-
     <!-- EXPERIENCES -->
     <form class="form">
         <div class="form--header-container">
@@ -156,8 +154,6 @@ get_header();
         <button class="form__btn" id="btn-4-prev">Précédent</button>
         <button class="form__btn" id="btn-4-next">Suivant</button>
     </form>
-
-
     <!-- COMPETENCES -->
     <form class="form">
         <div class="form--header-container">
@@ -175,10 +171,9 @@ get_header();
         <!-- <input type="text" placeholder="compétence2" />
         <input type="text" placeholder="compétence3" />
         <input type="text" placeholder="compétence4" /> -->
-        <button class="form__btn" id="btn-5-prev">Précedent</button>
+        <button class="form__btn" id="btn-5-prev">Précédent</button>
         <button class="form__btn" id="btn-5-next">Suivant</button>
     </form>
-
     <!-- LOISIRS -->
     <form class="form">
         <div class="form--header-container">
@@ -196,6 +191,7 @@ get_header();
         <!-- <input type="text" placeholder="loisir2" />
         <input type="text" placeholder="loisir3" />
         <input type="text" placeholder="loisir4" /> -->
+        <button class="form__btn" id="btn-6-prev">Précédent</button>
         <button class="form__btn" id="btn-6">Envoyez</button>
     </form>
     <div class="form--message"></div>

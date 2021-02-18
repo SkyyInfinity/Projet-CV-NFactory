@@ -501,14 +501,14 @@ input[type="text"] {
     display: block;
 }
 
-/* .form-active-animate {
+.form-active-animate {
     animation: moveRight 1s;
-} */
+}
 
-/* .form-inactive {
+.form-inactive {
     display: block;
     animation: moveLeft 1s;
-} */
+}
 
 .step-active {  
     color: #fff;
@@ -528,7 +528,7 @@ input[type="text"] {
     z-index: 1;
 }
 
-/* @keyframes moveRight {
+@keyframes moveRight {
     0% {
         transform: translateX(-27rem) scale(0.9);
         opacity: 0;
@@ -557,7 +557,7 @@ input[type="text"] {
     100% {
         opacity: 1;
     }
-} */
+}
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
 
