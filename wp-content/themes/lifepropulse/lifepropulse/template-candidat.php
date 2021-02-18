@@ -200,7 +200,7 @@ if(!empty($_SESSION["select_cv"])){
         $errors = textValid($errors,$diplome_type,'diplome_type',5,180);
         $errors = textValid($errors,$diplome_lieu,'diplome_lieu',5,80);
 
-        if($countDiplome < 6){
+        if($countDiplome < 5){
             if(empty($errors['diplome_name']) AND empty($errors['diplome_type']) AND empty($errors['diplome_lieu']) AND !empty($diplome_date) AND !empty($diplome_duree) AND !empty($diplome_lieu) AND !empty($diplome_apprentissage) AND !empty($diplome_stage)){
             
                 //on ajoute les données
@@ -261,6 +261,8 @@ if(!empty($_SESSION["select_cv"])){
             $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
             $query->execute();
             $countDiplome = $query->fetchColumn();
+        }else{
+            $errors['diplome_delete'] = 'ACCES DENIED';
         }
     }
     //listing par user
@@ -273,169 +275,294 @@ if(!empty($_SESSION["select_cv"])){
 
 }
 
+// Expérience
+
+if(!empty($_SESSION["select_cv"])){
+
+    //liste des diplomes par cv
+
+    $sql = "SELECT COUNT(ID) FROM experience WHERE cv_id = :cv_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+    $query->execute();
+    $countexperience = $query->fetchColumn();
+
+    //ajoute d'un diplome pour un CV
+
+    if(!empty($_POST['experience_send'])){
+
+        //Protection
+        $experience_date = clean($_POST['experience_date']);
+        $experience_duree = clean($_POST['experience_duree']);
+        $experience_entreprise = clean($_POST['experience_entreprise']);
+        $experience_missions = clean($_POST['experience_missions']);
+
+        $errors = textValid($errors,$experience_entreprise,'experience_entreprise',5,180);
+        $errors = textValid($errors,$experience_missions,'experience_missions',5,80);
+
+        if($countDiplome < 5){
+            if(empty($errors['experience_entreprise']) AND empty($errors['experience_missions']) AND !empty($experience_date) AND !empty($experience_duree) AND !empty($experience_entreprise) AND !empty($experience_missions)){
+            
+                //on ajoute les données
+    
+                $sql = "INSERT INTO experience (cv_id, date, entreprise, mission, duree) VALUES (:cv_id, :date, :entreprise, :mission, :duree)";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+                $query->bindValue(':date',$experience_date,PDO::PARAM_STR);
+                $query->bindValue(':entreprise',$experience_entreprise,PDO::PARAM_STR);
+                $query->bindValue(':mission',$experience_missions,PDO::PARAM_STR);
+                $query->bindValue(':duree',$experience_duree,PDO::PARAM_INT);
+                $query->execute();
+
+
+                //On actualise le count
+
+                $sql = "SELECT COUNT(ID) FROM experience WHERE cv_id = :cv_id";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+                $query->execute();
+                $countexperience = $query->fetchColumn();
+    
+            }else{
+                $errors['experience_send'] = 'Erreur dans saissit veuillez vérifier les champs';
+                die('experreur1');
+            }
+        }else{
+            $errors['experience_send'] = 'Nombre de diplome max atteint';
+            die('experreur1');
+        }
+
+
+    }
+
+
+    //suppresion des experience par user
+
+    if(!empty($_POST['experience_delete_submit'])){
+
+        $experience_delete_cvid = clean($_POST['experience_delete_cvid']);
+        $experience_delete_id = clean($_POST['experience_delete_id']);
+
+        //Si l'user à un _id_cv qui est à lui
+        
+        if(in_array($experience_delete_cvid,$select_listcv)){
+            
+            $sql = "DELETE FROM experience WHERE id = :id AND cv_id = :cv_id";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':id',$experience_delete_id,PDO::PARAM_INT);
+            $query->bindValue(':cv_id',$experience_delete_cvid,PDO::PARAM_INT);
+            $query->execute();
+
+            //On actualise le count
+
+            $sql = "SELECT COUNT(ID) FROM experience WHERE cv_id = :cv_id";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+            $query->execute();
+            $countexperience = $query->fetchColumn();
+        }else{
+            $errors['experience_delete'] = 'ACCES DENIED';
+        }
+    }
+    //listing par user
+
+    $sql = "SELECT * FROM experience WHERE cv_id = :cv_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+    $query->execute();
+    $experienceperusers = $query->fetchAll();
+
+}
+
+// Compétence
+
+if(!empty($_SESSION["select_cv"])){
+
+    //liste des competences par cv
+
+    $sql = "SELECT COUNT(ID) FROM competences WHERE cv_id = :cv_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+    $query->execute();
+    $countcompetence = $query->fetchColumn();
+
+    //ajoute d'une competences pour un CV
+
+    if(!empty($_POST['competence_send'])){
+
+        //Protection
+        $competence_name = clean($_POST['competence_name']);
+        $competence_type = clean($_POST['competence_type']);
+
+        $errors = textValid($errors,$competence_name,'competence_name',5,80);
+        $errors = textValid($errors,$competence_type,'competence_type',5,180);
+
+
+        if($countcompetence < 15){
+            if(empty($errors['competence_name']) AND empty($errors['competence_type']) AND !empty($competence_name) AND !empty($competence_type)){
+            
+                //on ajoute les données
+    
+                $sql = "INSERT INTO competences (cv_id,competence_name,competence_type) VALUES (:cv_id,:competence_name,:competence_type)";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+                $query->bindValue(':competence_name',$competence_name,PDO::PARAM_STR);
+                $query->bindValue(':competence_type', $competence_type,PDO::PARAM_STR);
+                $query->execute();
+
+
+                //On actualise le count
+
+                $sql = "SELECT COUNT(ID) FROM competences WHERE cv_id = :cv_id";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+                $query->execute();
+                $countcompetence = $query->fetchColumn();
+    
+            }else{
+                die('erreurA');
+                $errors['$competence_send'] = 'Erreur dans saissit veuillez vérifier les champs';
+            }
+        }else{
+            die('erreurB');
+            $errors['$competence_send'] = 'Nombre de competence max atteint';
+        }
+
+
+    }
+
+
+    //suppresion des diplome par user
+
+    if(!empty($_POST['competence_delete_submit'])){
+
+        $competence_delete_cvid = clean($_POST['competence_delete_cvid']);
+        $competence_delete_id = clean($_POST['competence_delete_id']);
+
+        //Si l'user à un _id_cv qui est à lui
+        
+        if(in_array($competence_delete_cvid,$select_listcv)){
+            
+            $sql = "DELETE FROM competences WHERE id = :id AND cv_id = :cv_id";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':id',$competence_delete_id,PDO::PARAM_INT);
+            $query->bindValue(':cv_id',$competence_delete_cvid,PDO::PARAM_INT);
+            $query->execute();
+
+            //On actualise le count
+
+            $sql = "SELECT COUNT(ID) FROM competences WHERE cv_id = :cv_id";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+            $query->execute();
+            $countcompetence = $query->fetchColumn();
+        }else{
+            $errors['competence_delete'] = 'ACCES DENIED';
+        }
+    }
+    //listing par user
+
+    $sql = "SELECT * FROM competences WHERE cv_id = :cv_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+    $query->execute();
+    $competenceusers = $query->fetchAll();
+
+}
+
+// loisir
+
+if(!empty($_SESSION["select_cv"])){
+
+    //liste des loisir par cv
+
+    $sql = "SELECT COUNT(ID) FROM loisir WHERE cv_id = :cv_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+    $query->execute();
+    $countloisir = $query->fetchColumn();
+
+    //ajoute d'une loisirs pour un CV
+
+    if(!empty($_POST['loisir_send'])){
+
+        //Protection
+        $loisir_name = clean($_POST['loisir_name']);
+
+        $errors = textValid($errors,$loisir_name,'loisir_name',5,80);
+
+        if($countloisir < 15){
+            if(empty($errors['loisir_name']) AND !empty($loisir_name)){
+                //on ajoute les données
+    
+                $sql = "INSERT INTO loisir (cv_id,loisir_name) VALUES (:cv_id,:loisir_name)";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+                $query->bindValue(':loisir_name',$loisir_name,PDO::PARAM_STR);
+                $query->execute();
+
+
+                //On actualise le count
+
+                $sql = "SELECT COUNT(ID) FROM loisir WHERE cv_id = :cv_id";
+                $query = $pdo->prepare($sql);
+                $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+                $query->execute();
+                $countloisir = $query->fetchColumn();
+    
+            }else{
+                die('erreurA');
+                $errors['$loisir_send'] = 'Erreur dans saissit veuillez vérifier les champs';
+            }
+        }else{
+            die('erreurB');
+            $errors['$loisir_send'] = 'Nombre de competence max atteint';
+        }
+
+
+    }
+
+
+    //suppresion des diplome par user
+
+    if(!empty($_POST['loisir_delete_submit'])){
+
+        $loisir_delete_cvid = clean($_POST['loisir_delete_cvid']);
+        $loisir_delete_id = clean($_POST['loisir_delete_id']);
+
+        //Si l'user à un _id_cv qui est à lui
+        
+        if(in_array($loisir_delete_cvid,$select_listcv)){
+            
+            $sql = "DELETE FROM loisir WHERE id = :id AND cv_id = :cv_id";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':id',$loisir_delete_id,PDO::PARAM_INT);
+            $query->bindValue(':cv_id',$loisir_delete_cvid,PDO::PARAM_INT);
+            $query->execute();
+
+            //On actualise le count
+
+            $sql = "SELECT COUNT(ID) FROM loisir WHERE cv_id = :cv_id";
+            $query = $pdo->prepare($sql);
+            $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+            $query->execute();
+            $countloisir = $query->fetchColumn();
+        }else{
+            $errors['loisir_delete'] = 'ACCES DENIED';
+        }
+    }
+    //listing par user
+
+    $sql = "SELECT * FROM loisir WHERE cv_id = :cv_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(':cv_id',$_SESSION["select_cv"],PDO::PARAM_INT);
+    $query->execute();
+    $loisirusers = $query->fetchAll();
+
+}
 
 get_header();
 ?>
-<section class="site-main candidat">
-<main>
-    <!-- STEPS -->
-    <div class="stepper">
-        <div class="step--1 step-active"><a href="#">1. Informations</a></div>
-        <div class="step--2"><a href="#">2. Formations</a></div>
-        <div class="step--3"><a href="#">3. Diplômes</a></div>
-        <div class="step--4"><a href="#">4. Expériences</a></div>
-        <div class="step--5"><a href="#">5. Compétences</a></div>
-        <div class="step--6"><a href="#">6. Loisirs</a></div>
-    </div>
-    <form class="form form-active">
-        <div class="form--header-container">
-            <h1 class="form--header-title">
-                Vos informations personnelles
-            </h1>
-        </div>
-        <div class="form--body--container">
-        <label>Votre nom</label>
-        <input type="text" name="name"/>
-        <label>Votre prénom</label>
-        <input type="text" name="firstname"/>
-        <label>Votre email</label>
-        <input type="text" name="email"/>
-        <label>Votre date de naissance</label>
-        <input type="text" name="birthdate"/>
-        <label>Votre numéro de téléphone</label>
-        <input type="text" name="cellphone"/>
-        <button class="form__btn" id="btn-1">Suivant</button>
-        </div>
-    </form>
-
-    <!-- DIPLOMES -->
-    <form class="form" action="template-recruteur.php" method="POST">
-        <div class="form--header-container">
-            <h1 class="form--header-title">
-                Vos diplômes
-            </h1>
-        </div>
-        <h2>Diplôme 1 </h2>
-        <label>Le type de diplôme</label>
-        <input type="text" name="diplome_type" placeholder="Type du diplôme" />
-        <span class="error" id="error_diplome_type"></span>
-        <label>Le nom du diplôme</label>
-        <input type="text" name="diplome_name" placeholder="Nom du diplôme" />
-        <span class="error" id="error_diplome_name"></span>
-        <label>La durée de diplôme</label>
-        <input type="text" name="diplome_duree" placeholder="Date du diplôme" />
-        <span class="error" id="error_diplome_duree"></span>
-        <label>L'établissement d'obtention du diplôme</label>
-        <input type="text" name="diplome_etablissement" placeholder="Etablissement" />
-        <span class="error" id="error_diplome_etablissement"></span>
-        <label for="">Apprentissage </label>
-        <select name="apprentissage" id="">
-            <option value="" hidden> --Choisissez-- </option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-        </select>
-        <p class="error"></p>
-        <label for="">Stage </label>
-        <select name="stage" id="">
-            <option value="" hidden> --Choisissez-- </option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-        </select>
-        <!-- <input type="text" placeholder="Diplome2" />
-        <input type="text" placeholder="Diplome3" />
-        <input type="text" placeholder="Diplome4" /> -->
-        <button class="form__btn" id="btn-2-prev">Précédent</button>
-        <button class="form__btn" id="btn-2-next">suivant</button>
-    </form>
-
-    <!-- FORMATIONS -->
-    <form class="form" action="template-recruteur.php" method="POST">
-        <div class="form--header-container">
-            <h1 class="form--header-title">
-                Vos formations
-            </h1>
-        </div>
-        <h2>Formation 1 </h2>
-        <label>Le type de formation</label>
-        <input type="text" name="formation_type" placeholder="Type de formation" />
-        <span class="error" id="error_formation_type"></span>
-        <label>Le nom de la formation</label>
-        <input type="text" name="formation_name" placeholder="Nom de la formation" />
-        <span class="error" id="error_formation_name"></span>
-        <label>La date de la formation</label>
-        <input type="text" name="date" placeholder="Date de la formation" />
-        <span class="error" id="error_date"></span>
-        <label>La durée de formation</label>
-        <input type="text" name="formation_duree" placeholder="Durée de la formation" />
-        <span class="error" id="error_formation_duree"></span>
-        <input type="text" name="formation_etablissement" placeholder="Etablissement" />
-        <span class="error" id="error_formation_etablissement"></span>
-        <label for="">Apprentissage </label>
-        <select name="apprentissage" id="">
-            <option value="" hidden> --Choisissez-- </option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-        </select>
-        <p class="error"></p>
-        <label for="">Stage </label>
-        <select name="stage" id="">
-            <option value="" hidden> --Choisissez-- </option>
-            <option value="oui">Oui</option>
-            <option value="non">Non</option>
-        </select>
-        <!-- <input type="text" placeholder="formation2" />
-        <input type="text" placeholder="formation3" />
-        <input type="text" placeholder="formatione4" /> -->
-        <button class="form__btn" id="btn-2-prev">Previous</button>
-        <button class="form__btn" id="btn-2-next">Next</button>
-    </form>
-
-    <!-- EXPERIENCES -->
-    <form class="form" action="template-recruteur.php" method="POST">
-        <div class="form--header-container">
-            <h1 class="form--header-title">
-                Vos expériences
-            </h1>
-        </div>
-        <h2>Expérience 1</h2>
-        <label>Intitulé du poste</label>
-        <input type="text" name="poste_name" placeholder="Intitulé du poste" />
-        <label>Date de l'expérience</label>
-        <input type="text" name="poste_date" placeholder="Date de l'expérience" />
-        <label>Durée de l'expérience</label>
-        <input type="text" name="poste_duree" placeholder="Durée de l'expérience" />
-        <label>Nom de l'entreprise</label>
-        <input type="text" name="entreprise" placeholder="Entreprise" />
-        <label>Missions demandées</label>
-        <input type="text" name="missions" placeholder="Missions demandées" />
-        <!-- <input type="text" placeholder="expérience2" />
-        <input type="text" placeholder="expérience3" />
-        <input type="text" placeholder="expérience4" /> -->
-        <button class="form__btn" id="btn-2-prev">Précédent</button>
-        <button class="form__btn" id="btn-2-next">suivant</button>
-    </form>
-
-
-    <!-- COMPETENCES -->
-    <form class="form" action="template-recruteur.php" method="POST">
-        <div class="form--header-container">
-            <h1 class="form--header-title">
-                Vos compétences
-            </h1>
-        </div>
-        <h2>Compétence 1 </h2>
-        <label>Type de compétence</label>
-        <input type="text" name="competence_type" placeholder="Type de compétence" />
-        <label>Nom de la compétence</label>
-        <input type="text" name="competence_name" placeholder="Nom de la compétence" />
-        <label>Niveau de la compétence</label>
-        <input type="text" name="competence_niveau" placeholder="Niveau de compétence" />
-        <!-- <input type="text" placeholder="compétence2" />
-        <input type="text" placeholder="compétence3" />
-        <input type="text" placeholder="compétence4" /> -->
-        <button class="form__btn" id="btn-2-prev">Previous</button>
-        <button class="form__btn" id="btn-2-next">Next</button>
-    </form>
 
 <div class="wrap2">
     <section class="site-main" id="formulaire">
@@ -575,53 +702,101 @@ get_header();
                         }
                             ?>
                     </ul>
+                    <p class="error"><?php if(!empty($errors['diplome_delete'])) {echo $errors['diplome_delete'];} ?></p>
                 <h1>------------------------</h1>
                 </div>
                 <!-- champs expériences pro -->
-                <div class="champform">
-                    <label for="">Nom du poste </label>
-                    <textarea name="nom" placeholder=""><?= (!empty($_POST['poste_name'])) ? $_POST['poste_name'] : '' ?></textarea>
-                    <label for="">Date de l'expérience </label>
-                    <input type="date" name="date" placeholder="" value="<?= (!empty($_POST['poste_date'])) ? $_POST['poste_date'] : '' ?>">
-                    <label for="">Durée de l'expérience </label>
-                    <textarea name="duree" placeholder=""><?= (!empty($_POST['poste_duree'])) ? $_POST['poste_duree'] : '' ?></textarea>
-                    <label for="">Entreprise </label>
-                    <input type="text" name="entreprise" placeholder="" value="<?= (!empty($_POST['entreprise'])) ? $_POST['entreprise'] : '' ?>">
-                    <label for="">Missions demandées</label>
-                    <textarea name="missions" placeholder="" <?= (!empty($_POST['missions'])) ? $_POST['missions'] : '' ?>></textarea>
+                <h1>------------------------</h1>
+                <h1>Expérience pro</h1>
+                <h1>------------------------</h1>
+                <div class="">
+                    <form action="" method="POST">
+
+                        <label for="competence_date">Date de l'expérience </label>
+                        <input type="date" name="experience_date">
+
+                        <label for="competence_duree">Durée de l'expérience en mois</label>
+                        <input type="number" name="experience_duree" placeholder="">
+
+                        <label for="competence_entreprise">Entreprise </label>
+                        <input type="text" name="experience_entreprise">
+
+                        <label for="competence_missions">Missions demandées</label>
+                        <textarea name="experience_missions"></textarea>
+
+                        <input type="submit" name="experience_send">
+                    </form>
                 </div>
-                <!-- champs formations -->
-                <div class="champform">
-                    <label for="">Nom de la formation </label>
-                    <textarea name="formation_name" placeholder=""><?= (!empty($_POST['formation_name'])) ? $_POST['formation_name'] : '' ?></textarea>
-                    <label for="">Type de formation </label>
-                    <textarea name="formation_type" placeholder=""><?= (!empty($_POST['formation_type'])) ? $_POST['formation_type'] : '' ?></textarea>
-                    <label for="">Date de la formation </label>
-                    <input type="date" name="date" placeholder="" value="<?= (!empty($_POST['date'])) ? $_POST['date'] : '' ?>">
-                    <label for="">Durée de la formation </label>
-                    <textarea name="duree" placeholder=""><?= (!empty($_POST['duree'])) ? $_POST['duree'] : '' ?></textarea>
-                    <label for="">Etablissement </label>
-                    <input type="text" name="etablissement" placeholder="" value="<?= (!empty($_POST['etablissement'])) ? $_POST['etablissement'] : '' ?>">
-                </div>
+                <h1>------------------------</h1>
+                <h1>------------------------</h1>
+                <h1>Listings des expérience</h1>
+                    <ul>
+                        <?php foreach($experienceperusers as $experienceperuser){
+                            echo '<form action="" method="POST">';
+                            echo '<input name="experience_delete_cvid" type="hidden" value="'.$experienceperuser['cv_id'].'">';
+                            echo '<input name="experience_delete_id" type="hidden" value="'.$experienceperuser['id'].'">';
+                            echo '<li>'. $experienceperuser['entreprise'] .' <input name="experience_delete_submit" type="submit" value="DELETE"></li>';
+                            echo '</form>';
+                        }
+                            ?>
+                    </ul>
+                    <p class="error"><?php if(!empty($errors['diplome_delete'])) {echo $errors['diplome_delete'];} ?></p>
+                <h1>------------------------</h1>
+                <h1>------------------------</h1>
+                <h1>------------------------</h1>
+                <h1>Compétence</h1>
+                <h1>------------------------</h1>
                 <!-- champs compétences -->
                 <div class="champform">
-                    <label for="">Type de compétence </label>
-                    <textarea name="competence_type" placeholder=""><?= (!empty($_POST['competence_type'])) ? $_POST['competence_type'] : '' ?></textarea>
-                    <label for="">Nom de compétence </label>
-                    <textarea name="competence_name" placeholder=""><?= (!empty($_POST['competence_name'])) ? $_POST['competence_name'] : '' ?></textarea>
-                    <label for="">Niveau de compétence </label>
-                    <textarea name="niveau" placeholder=""><?= (!empty($_POST['niveau'])) ? $_POST['niveau'] : '' ?></textarea>
+                    <form action="" method="POST">
+                        <label for="competence_type">Type de compétence </label>
+                        <input type="text" name="competence_type">
+                        <label for="competence_name">Nom de compétence </label>
+                        <input type="text" name="competence_name">
+                        <input type="submit" name="competence_send" value="competence">
+                    </form>
                 </div>
+                <h1>------------------------</h1>
+                <h1>Listings des compétence</h1>
+                    <ul>
+                        <?php foreach($competenceusers as $competenceuser){
+                            echo '<form action="" method="POST">';
+                            echo '<input name="competence_delete_cvid" type="hidden" value="'.$competenceuser['cv_id'].'">';
+                            echo '<input name="competence_delete_id" type="hidden" value="'.$competenceuser['id'].'">';
+                            echo '<li>'. $competenceuser['competence_name'] .' <input name="competence_delete_submit" type="submit" value="DELETE"></li>';
+                            echo '</form>';
+                        }
+                            ?>
+                    </ul>
+                <h1>------------------------</h1>
+                <h1>Loisirs</h1>
+                <h1>------------------------</h1>
                 <!-- champs loisirs -->
                 <div class="champform">
-                    <label for="">Nom du loisir </label>
-                    <textarea name="loisir_name" placeholder=""><?= (!empty($_POST['loisir_name'])) ? $_POST['loisir_name'] : '' ?></textarea>
-                    <label for="">Type de loisir </label>
-                    <textarea name="loisir_type" placeholder=""><?= (!empty($_POST['loisir_type'])) ? $_POST['loisir_type'] : '' ?></textarea>
-                    <label for="">Niveau </label>
-                    <textarea name="niveau" placeholder=""><?= (!empty($_POST['niveau'])) ? $_POST['niveau'] : '' ?></textarea>
+
+                    <form action="" method="POST">
+                        <label for="loisir_send
+                        ">Nom du loisir </label>
+                        <input type="text" name="loisir_name">
+
+                        <input type="submit" name="loisir_send">
+                    </form>
                 </div>
-                <input type="submit" name="submitted" class="btn" value="Valider">
+
+                <h1>------------------------</h1>
+                <h1>List des loisirs</h1>
+                <ul>
+                        <?php foreach($loisirusers as $loisiruser){
+                            echo '<form action="" method="POST">';
+                            echo '<input name="loisir_delete_cvid" type="hidden" value="'.$loisiruser['cv_id'].'">';
+                            echo '<input name="loisir_delete_id" type="hidden" value="'.$loisiruser['id'].'">';
+                            echo '<li>'. $loisiruser['loisir_name'] .' <input name="loisir_delete_submit" type="submit" value="DELETE"></li>';
+                            echo '</form>';
+                        }
+                            ?>
+                    </ul>
+                <h1>------------------------</h1>
+
                 <?php }else{?>
                     <h1>Veuillez choisir un cv </h1>
                 <?php } ?>

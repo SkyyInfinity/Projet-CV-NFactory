@@ -64,3 +64,10 @@ function ageCalculator($dob) {
         return 0;
     }
 }
+/**
+ * Redirige vers la page inscrite
+ * @param string $page Slug de la page vers laquelle rediriger
+ */
+function redirection($page) {
+    header('location:'. $page);
+}

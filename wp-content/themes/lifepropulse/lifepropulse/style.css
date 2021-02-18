@@ -326,6 +326,7 @@ footer.site-footer {
 
 .title-form {
     background: -webkit-linear-gradient( 0deg, #FFF000, #FF6400);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -416,6 +417,7 @@ footer.site-footer {
 
 .title-form-connect {
     background: -webkit-linear-gradient( 0deg, #FFF000, #FF6400);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -567,7 +569,7 @@ span.error {
     display: block;
 }
 
-h2.success {
+.success {
     color: green;
     text-align: center;
     font-size: 2.5em;
@@ -577,7 +579,7 @@ h2.success {
     border-radius: 50px;
 }
 
-h2.success span {
+.success span {
     text-align: center;
     font-size: .5em;
     margin: 20px 0;
@@ -601,6 +603,7 @@ h1.h1-page-title {
     margin-bottom: 50px;
     position: relative;
     text-align: center;
+    cursor: default;
 }
 
 h1.h1-page-title::before {
@@ -664,8 +667,9 @@ form input[type=submit] {
 form input::placeholder {
     color: #b1b1b1;
     font-style: italic;
-    /* Template A Propos */
 }
+
+/* Template A Propos */
 
 /* .title-propos {
     -webkit-background-clip: text;
@@ -864,16 +868,19 @@ h1.title-section-cv::before {
     padding-right: 15px;
     width: 50%;
 }
+
 .btn-cancel {
     text-align: center;
     margin-bottom: 60px;
 }
+
 .btn-cancel a {
     text-decoration: none;
     color: #303030 !important;
     padding: 10px 20px;
     font-size: 1.2em;
 }
+
 .btn-cancel a:hover {
     color: white !important;
 }
@@ -981,6 +988,107 @@ table {
     font-size: 18px;
     display: flex;
     justify-content: center;
+}
+
+/* __404__ */
+
+.error-404 {
+    padding: 25px 0px;
+    text-align: center;
+    position: relative;
+    background-image: url('./asset/img/background-pages.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.error-404 .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+
+h1.title-NotFound {
+    padding: 15px;
+    font-size: 15em;
+    font-weight: bold;
+    color: #303030;
+    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    pointer-events: none;
+}
+
+p.info-NotFound {
+    padding: 10px;
+    font-size: 2em;
+    background-color: #303030;
+    color: white;
+    margin-top: 15px;
+    pointer-events: none;
+}
+
+.error-404 .btn {
+    margin: 50px 0;
+}
+
+.error-404 .btn a {
+    font-size: 1.5em;
+    padding: 10px 25px;
+    text-decoration: none;
+}
+
+.error-404 .flex img {
+    width: 40%;
+    pointer-events: none;
+}
+
+/* __ RESET PASSWORD __ */
+
+.forgot-psswd {
+    margin-bottom: 15px !important;
+    text-align: center;
+}
+
+.forgot-psswd a {
+    text-decoration: none;
+    text-underline-offset: 1px;
+    transition: .2s;
+}
+
+.forgot-psswd a:hover {
+    text-decoration: underline;
+}
+
+.forgot-box {
+    padding: 250px 0 230px 0;
+}
+
+.forgot-box form {
+    text-align: center;
+}
+
+.forgot-box form .forgot-info {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #303030;
+}
+
+.forgot-box form input[type=email] {
+    width: auto;
+}
+
+.forgot-box form .submit input {
+    margin-right: 5px;
+}
+
+.forgot-box form .submit a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #303030;
+    margin-left: 5px;
+}
+
+.forgot-box form .submit a:hover {
+    color: white;
 }
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
@@ -1207,6 +1315,20 @@ table {
     #section_home .header-info {
         width: 100%;
     }
+    h1.title-NotFound {
+        padding: 15px;
+        font-size: 10em;
+        font-weight: bold;
+        color: #303030;
+        background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    }
+    p.info-NotFound {
+        padding: 10px;
+        font-size: 1.7em;
+        background-color: #303030;
+        color: white;
+        margin-top: 15px;
+    }
 }
 
 @media only screen and (max-width: 940px) {
@@ -1223,6 +1345,9 @@ table {
         background-repeat: no-repeat;
         background-size: contain;
     }
+    .error-404 .btn a {
+        font-size: 1.2em;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -1231,6 +1356,28 @@ table {
         align-items: center;
         display: inline-block;
         width: 80%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .error-404 .flex {
+        flex-direction: column;
+    }
+    .error-404 .flex img {
+        width: 50%;
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    h1.title-NotFound {
+        font-size: 7em;
+    }
+    p.info-NotFound {
+        font-size: 1.4em;
+    }
+    h1.h1-page-title::before {
+        display: none;
     }
 }
 
@@ -1334,6 +1481,9 @@ table {
         justify-content: center;
         align-items: center;
         width: 70%;
+    }
+    .forgot-box form input[type=email] {
+        width: 100%;
     }
     input[type=text], input[type=email], input[type=password], textarea {
         width: 80%;
