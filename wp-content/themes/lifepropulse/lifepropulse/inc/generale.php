@@ -130,3 +130,6 @@ function my_phpmailer_example( $phpmailer ) {
 }
 
 add_action( 'phpmailer_init', 'my_phpmailer_example' );
+
+// Cacher la bar de l'admin
+add_filter( 'show_admin_bar', '__return_false' );
