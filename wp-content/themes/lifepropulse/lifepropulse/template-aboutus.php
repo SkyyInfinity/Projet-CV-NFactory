@@ -22,14 +22,12 @@ get_header(); ?>
                 <h1 class="h1-page-title ">En savoir plus sur nous</h1>
             </div>
             <div class="long-text-propos">
-                <p class="long-text-a-propos"> Life Propulse sommes une équipe composé de 5 personnes, qui à pour but de vous orienter le mieux possible vers une formation, ou une offre d'emplois, qui pourrait vous intéresse.
-                    Nous sommes là pour vous aider aux mieux possible, Nous nous engageons à vous aidez au mieux dans la recherche d'emplois ou formations.<br> <br>
-                    Crée en 2016 Par notre équipe, qui avant cela étions nous aussi à la recherche d'emplois.
-                    Mais hélas nous avions pas trouvé d'emplois, alors nous sommes parti chez d'autre organisation afin de nous aider aux à trouver un emplois mais les démarches étais beaucoup trop longue.<br><br>
-                    Alors on n'a commencer à faire nous même nos propre recherche, à commençer à faire nos CV et démarcher nous mêmes les entreprises, simuler des entretiens nous savion mis tous en oeuvre pour que toutes les chances soient de notres côtés au final,
-                    les résultats on porté leur fruits puisque qu'on a réussi à atteindre notre objectif qui étais de trouver un emplois dans le domaine de la commuication pour un contrat de 2ans. <br> <br>
-                    A la fin de ce contrat nous avons décider d'ouvrir une agence d'emplois qui permettra par la suite d'essayer de vous trouver un emplois qui correspondent à vos recherche.
-                    Car ayant été passer par là on sait à quel point c'est difficle alors pour essayer de vous faliciter les choses vous pourrez mettre vos CV ou en faire sur notre on pourrait vous aider si vous le souhaiter puis les envoyer via toujours notre site. Vous pourrez voir les offre actuellement disponible afi que vous puissiez postuler directement
+          <p class="long-text-a-propos"> Life Propulse est un cabinet de recrutement composé du dirigeant, Mr Jean-michel Bertolucci, ainsi que d'une équipe de 5 personnes. Nous avons pour but de vous orienter au mieux vers une formation ou une offre d'emploi, qui pourrait vous intéresser et s'adapter à votre profil.
+                    Nous nous engageons à vous aidez et à vous orienter dans vos recherches d'emplois<br> <br>
+                    Créé en 2018 par son digireant, le cabinet s'agrandit de jour en jour et 100% des personnes ayant candidaté chez nous repartent avec un emploi ou une formation en poche.
+                    <br><br>
+                   Nous savons à quel point le marché du travail est rude de nos jours, nous prenons donc à coeur de vous conseiller et de vous orienter au plus juste. 
+                   Pour répondre aux besoins des candidats, nous avons donc mis en place un outil vous permettant de créer un ou plusieurs CVs. Une fois créés, ceux-ci sont directement réceptionnés par notre équipe de recrutement qui pourra alors répondre au mieux à vos attentes. C'est simple, efficace et rapide ! Alors n'attendez plus, à vos CVs !
 
                 </p>
             </div>
@@ -39,7 +37,7 @@ get_header(); ?>
                     <h1 class="h1-page-title ">Ce que nous voulons</h1>
                 </div>
                 <div class="img-entretien">
-                    <p class="descrpiton-img">C'est de vous donner l'opportunauté décrocher votre entretiens </p>
+                    <p class="descrpiton-img">Vous donner l'opportunité de décrocher des entretiens </p>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/entretien-1.jpg" alt="">
 
                 </div>
@@ -47,27 +45,25 @@ get_header(); ?>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/fleche-center.png" alt="">
                 </div>
                 <div class="but-principal">
-                    <h1 class="title-principal">Nous vous aidons à la création de votre CV</h1>
+                    <h1 class="title-principal">Vous conseiller sur la création de votre CV</h1>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/cv-logo-carre3.png" alt="">
                 </div>
                 <div class="fleche-dernière">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/fleche-center.png" alt="">
                 </div>
                 <div class="but-equipe">
-                    <h1 class="equipe">Notre Equipe avions hâtes de pouvoir commençer avec vous</h1>
+                    <h1 class="equipe">Notre équipe a hâte de vous rencontrer, n'attendez plus !</h1><br>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/aurore.png" alt="">
-                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
-                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
-                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/dylan.jpg" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/valentin.png" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/theo.png" alt="">
+
 
                 </div>
 
             </div>
         </div>
-
-
-
 
     </div>
 </section>

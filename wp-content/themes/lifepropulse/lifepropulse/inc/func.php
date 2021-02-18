@@ -38,4 +38,36 @@ function emailValidation($err,$mail,$key)
         $err[$key] = 'Veuillez renseigner ce champ';
     }
     return $err;
-}                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+}
+
+// Met le premier caractère en majuscule (même les accents)
+function mb_ucfirst($string, $encoding = 'utf-8') {
+    if (empty($string) || !is_string($string)) {
+        return null;
+    }
+    
+    $strLen = mb_strlen($string, $encoding);
+    $firstChar = mb_substr($string, 0, 1, $encoding);
+    $then = mb_substr($string, 1, $strLen - 1, $encoding);
+    
+    return mb_strtoupper($firstChar, $encoding) . $then;
+}
+
+// DATE TO AGE
+function ageCalculator($dob) {
+    if(!empty($dob)) {
+        $birthdate = new DateTime($dob);
+        $today   = new DateTime('today');
+        $age = $birthdate->diff($today)->y;
+        return $age;
+    } else {
+        return 0;
+    }
+}
+/**
+ * Redirige vers la page inscrite
+ * @param string $page Slug de la page vers laquelle rediriger
+ */
+function redirection($page) {
+    header('location:'. $page);
+}

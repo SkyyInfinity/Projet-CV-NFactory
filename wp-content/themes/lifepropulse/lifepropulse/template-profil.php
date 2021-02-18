@@ -10,12 +10,17 @@ if($user->ID == 0){
 get_header();
 ?>
 
-<section class="site-main">
+<section class="site-main profil-page">
     <h1 class="h1-page-title">Mes Informations</h1>
 
-    <p>Bonjour <?= $user->display_name; ?> </p>
-    <p>Votre email : <?= $user->user_email; ?> </p>
-    <p>Premiére connexion : <?= $user->user_registered; ?> </p>
+    <div class="info-profil">
+        <p><i class="fas fa-user"></i> Bonjour <span><?= $user->display_name; ?></span></p>
+        <p><i class="fas fa-envelope"></i> Votre email : <span><?= $user->user_email; ?></span></p>
+        <p><i class="fas fa-clock"></i> Premiére connexion le: <span><?= $user->user_registered; ?></span></p>
+        <div class="btn-recruteur">
+            <a class="btn-secondary" href="<?= esc_url(home_url('recruteur')); ?>">Page pour les recruteurs</a>
+        </div>
+    </div>
 
 </section>
 
