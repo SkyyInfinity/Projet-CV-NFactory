@@ -3,6 +3,16 @@
 Template Name: candidat
 */
 
+// confirmation par mail quand le cv est créé
+$to = 'aurore.fournier0809@gmail.com';
+$sujet = 'Confirmation de création du CV';
+$message = 'Vous venez de créer votre CV, nous vous en confirmons la bonne réception et reviendrons vers vous dans les plus brefs délais.
+
+
+Service de recrutement, Life Propulse';
+
+wp_mail( $to, $sujet, $message );
+
 //On vérifie que l'user est bien connecter sinon on le renvoie à la page connection
 $user = wp_get_current_user();
 if($user->ID == 0){
@@ -46,13 +56,13 @@ if(!empty($_POST["create_cv"])){
                 $query->bindValue(':name',$create_name,PDO::PARAM_STR);
                 $query->execute();
 
-                $success['create_cv'] = 'Le cv est crée';
+                $success['create_cv'] = 'Le cv est créé';
     
             }else{
-                $errors['create_cv'] = 'Tu ne peux pas avoir 2 cv qui ont le méme nom';
+                $errors['create_cv'] = 'Tu ne peux pas avoir 2 CVs qui ont le même nom';
             }
         }else{
-            $errors['create_cv'] = 'Tu ne peux pas avoir plus de 5 CV';
+            $errors['create_cv'] = 'Tu ne peux pas avoir plus de 5 CVs';
         }
     }
 }
@@ -86,7 +96,7 @@ if(!empty($_POST['delete_cv'])){
         $query->bindValue(':id',$delete_id ,PDO::PARAM_INT);
         $query->execute();
 
-        $success['delete_cv'] = "Suprimer avec success";
+        $success['delete_cv'] = "Supprimé avec succès";
 
         //On actualise la liste en cas de modification
         $sql = "SELECT id FROM cv WHERE user_id = :id";
@@ -96,7 +106,7 @@ if(!empty($_POST['delete_cv'])){
         $list_cvbis = $query->fetchAll();
 
     }else{
-        $errors['delete_cv'] = "Erreur permission denied";
+        $errors['delete_cv'] = "Erreur permission refusée";
     }
 }
 
@@ -119,10 +129,10 @@ if(!empty($_POST['select_cv'])){
         
         $_SESSION["select_cv"]=$selectcv;
 
-        $success['select_cv'] = 'Le CV '. $select_name_cv .' peux étre modifier avec success';
+        $success['select_cv'] = 'Le CV '. $select_name_cv .' peut être modifié avec succès';
 
     }else{
-        $errors['select_cv'] = "Erreur permission denied";
+        $errors['select_cv'] = "Erreur permission refusée";
     }
 }
 
@@ -167,7 +177,7 @@ if(!empty($_POST['submit_name'])){
         }
 
     }else{
-        $errors['submit_name'] = 'erreur dans la saisit vérifier les champs';
+        $errors['submit_name'] = 'Erreur dans la saisie, vérifiez les champs';
     }
 }
 
@@ -227,10 +237,10 @@ if(!empty($_SESSION["select_cv"])){
                 $countDiplome = $query->fetchColumn();
     
             }else{
-                $errors['diplome_send'] = 'Erreur dans saissit veuillez vérifier les champs';
+                $errors['diplome_send'] = 'Erreur dans la saisie, vérifiez les champs';
             }
         }else{
-            $errors['diplome_send'] = 'Nombre de diplome max atteint';
+            $errors['diplome_send'] = 'Nombre de diplômes max atteint';
         }
 
 
@@ -262,7 +272,7 @@ if(!empty($_SESSION["select_cv"])){
             $query->execute();
             $countDiplome = $query->fetchColumn();
         }else{
-            $errors['diplome_delete'] = 'ACCES DENIED';
+            $errors['diplome_delete'] = 'Accès refusé ! ';
         }
     }
     //listing par user
@@ -324,11 +334,11 @@ if(!empty($_SESSION["select_cv"])){
                 $countexperience = $query->fetchColumn();
     
             }else{
-                $errors['experience_send'] = 'Erreur dans saissit veuillez vérifier les champs';
+                $errors['experience_send'] = 'Erreur dans la saisie, vérifiez les champs';
                 die('experreur1');
             }
         }else{
-            $errors['experience_send'] = 'Nombre de diplome max atteint';
+            $errors['experience_send'] = 'Nombre de diplômes max atteint';
             die('experreur1');
         }
 
@@ -361,7 +371,7 @@ if(!empty($_SESSION["select_cv"])){
             $query->execute();
             $countexperience = $query->fetchColumn();
         }else{
-            $errors['experience_delete'] = 'ACCES DENIED';
+            $errors['experience_delete'] = 'Accès refusé !';
         }
     }
     //listing par user
@@ -421,11 +431,11 @@ if(!empty($_SESSION["select_cv"])){
     
             }else{
                 die('erreurA');
-                $errors['$competence_send'] = 'Erreur dans saissit veuillez vérifier les champs';
+                $errors['$competence_send'] = 'Erreur dans la saisie, vérifiez les champs';
             }
         }else{
             die('erreurB');
-            $errors['$competence_send'] = 'Nombre de competence max atteint';
+            $errors['$competence_send'] = 'Nombre de compétences max atteint';
         }
 
 
@@ -457,7 +467,7 @@ if(!empty($_SESSION["select_cv"])){
             $query->execute();
             $countcompetence = $query->fetchColumn();
         }else{
-            $errors['competence_delete'] = 'ACCES DENIED';
+            $errors['competence_delete'] = 'Accès refusé !';
         }
     }
     //listing par user
@@ -512,11 +522,11 @@ if(!empty($_SESSION["select_cv"])){
     
             }else{
                 die('erreurA');
-                $errors['$loisir_send'] = 'Erreur dans saissit veuillez vérifier les champs';
+                $errors['$loisir_send'] = 'Erreur dans la saisie, vérifiez les champs';
             }
         }else{
             die('erreurB');
-            $errors['$loisir_send'] = 'Nombre de competence max atteint';
+            $errors['$loisir_send'] = 'Nombre de compétences max atteint';
         }
 
 
@@ -548,7 +558,7 @@ if(!empty($_SESSION["select_cv"])){
             $query->execute();
             $countloisir = $query->fetchColumn();
         }else{
-            $errors['loisir_delete'] = 'ACCES DENIED';
+            $errors['loisir_delete'] = 'Accès refusé !';
         }
     }
     //listing par user
