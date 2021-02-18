@@ -54,20 +54,18 @@ get_header(); ?>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/fleche-center.png" alt="">
                 </div>
                 <div class="but-equipe">
-                    <h1 class="equipe">Notre Equipe avions hâtes de pouvoir commençer avec vous</h1>
+                    <h1 class="equipe">Notre Equipe avions hâtes de pouvoir commençer avec vous</h1><br>
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/aurore.png" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/dylan.jpg" alt="">
                     <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
-                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
-                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/bg-noir.png" alt="">
+                    <img src="<?php echo get_template_directory_uri() ?> /asset/img/theo.png" alt="">
+
 
                 </div>
 
             </div>
         </div>
-
-
-
 
     </div>
 </section>

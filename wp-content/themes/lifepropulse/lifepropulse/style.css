@@ -46,6 +46,7 @@ body {
     margin: 0 auto;
     padding: 0 15px;
 }
+
 .btn-primary {
     opacity: 1 !important;
     font-weight: 800 !important;
@@ -53,10 +54,12 @@ body {
     border-radius: 50px;
     transition: .2s;
 }
+
 .btn-primary:hover {
     background-color: #303030;
     color: white;
 }
+
 .btn-secondary {
     opacity: 1 !important;
     font-weight: 800 !important;
@@ -66,10 +69,12 @@ body {
     border-radius: 50px;
     transition: .2s;
 }
+
 .btn-secondary:hover {
     border: 3px solid black;
     background-color: black;
 }
+
 .btn-color {
     text-decoration: none;
     color: white;
@@ -81,6 +86,7 @@ body {
     text-transform: uppercase;
     transition: .2s;
 }
+
 .btn-color:hover {
     opacity: .7;
 }
@@ -101,9 +107,9 @@ body {
 
 .site-header.sticky {
     padding: 5px 0;
-    box-shadow: 0px 15px 29px -10px rgba(0,0,0,0.3);
-    -webkit-box-shadow: 0px 15px 29px -10px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 15px 29px -10px rgba(0,0,0,0.3);
+    box-shadow: 0px 15px 29px -10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 15px 29px -10px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 15px 29px -10px rgba(0, 0, 0, 0.3);
 }
 
 /* ─── MODULE ────────────────────────────────────────────── */
@@ -145,49 +151,59 @@ body {
 .widget_nav ul li a:hover {
     opacity: 1;
 }
+
 .burger {
     display: none;
 }
 
 /* __Content__ */
+
 .site-main {
     padding-top: 130px;
 }
+
 #section_home {
     padding: 220px 0 150px 0;
     background-image: url('./asset/img/bg-home-desktop.png');
     background-position: center;
     background-size: cover;
 }
+
 #section_home .header-info {
     display: flex;
     flex-direction: column;
     width: 45%;
 }
+
 #section_home .header-info h1 {
     color: #303030;
     font-size: 4em;
     font-weight: bold;
     line-height: 1.2em;
 }
+
 #section_home .header-info p {
     color: #999999;
     font-size: 1.2em;
     line-height: 1.5em;
     padding: 20px 0;
 }
+
 #section_home .header-info .btn {
     padding: 20px 0;
 }
 
 /*FOOTER*/
+
 footer.site-footer {
     background-color: #303030;
 }
+
 .banner-head {
     background-color: #303030;
     padding: 15px 0;
 }
+
 .banner-head .flex {
     display: flex;
     justify-content: space-between;
@@ -357,23 +373,28 @@ footer.site-footer {
 .flex-inscription :not(input[type=submit]) {
     width: 100%;
 }
+
 .flex-connexion :not(input[type=submit]) {
     width: 100%;
-    
 }
-.envoyer-formulaire{
+
+.envoyer-formulaire {
     text-align: center;
 }
+
 .envoyer-formulaire {
     margin: 25px 0;
 }
+
 .error {
     text-align: center;
     color: crimson;
 }
+
 .flex-inscription .ensemble-form {
     margin-left: 50px;
 }
+
 .flex-connexion .ensemble-form {
     margin-right: 50px;
 }
@@ -382,7 +403,6 @@ footer.site-footer {
 
 .image-connexion {
     justify-content: flex-end;
-    
 }
 
 .flex-connexion {
@@ -394,7 +414,6 @@ footer.site-footer {
     padding: 50px 0;
 }
 
-
 .title-form-connect {
     background: -webkit-linear-gradient( 0deg, #FFF000, #FF6400);
     -webkit-background-clip: text;
@@ -404,14 +423,17 @@ footer.site-footer {
     font-size: 80px;
     font-weight: bold;
 }
+
 .flex a {
     text-decoration: none;
     color: white;
 }
+
 .logo-footer_center {
     display: flex;
     align-items: center;
 }
+
 .footer_foot {
     text-align: center;
     background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
@@ -433,39 +455,48 @@ footer.site-footer {
     text-decoration: none;
     color: #dedede;
 }
+
 .contact_footer a:hover {
     text-decoration: underline;
     text-underline-offset: 1px;
 }
+
 .contact_footer p {
     line-height: 1.5em;
     font-size: .9em;
     margin-left: 30px;
 }
+
 .contact_footer span {
     font-weight: bold;
     color: white;
 }
+
 .flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .flex ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .flex ul li {
     margin: 0 15px;
 }
+
 .logo-footer_center {
     display: flex;
     align-items: center;
 }
+
 .logo-footer_center .logo img {
     width: 150px;
 }
+
 .footer_foot {
     text-align: center;
     font-weight: 100;
@@ -474,47 +505,54 @@ footer.site-footer {
     padding: 10px 0;
     font-size: .9em;
 }
+
 .nav_links ul {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .nav_links ul li a {
     padding: 10px 20px;
     text-decoration: none;
     color: #DEDEDE;
     font-weight: 600;
 }
+
 .banner-copyright {
     background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
     padding: 7px 0;
 }
+
 .banner-copyright p {
     font-size: .9em;
     font-weight: bold;
     color: #303030;
     text-align: center;
 }
+
 .links {
     display: flex;
     justify-content: space-between;
 }
+
 .social {
     display: flex;
     justify-content: space-between
 }
-.social a,
-.flex .menu a {
+
+.social a, .flex .menu a {
     text-decoration: none;
     opacity: .7;
     transition: .2s;
     padding: 5px;
     color: white;
 }
-.social a:hover,
-.flex .menu a:hover {
+
+.social a:hover, .flex .menu a:hover {
     opacity: 1;
 }
+
 .social .fab {
     font-size: 1.5em;
 }
@@ -522,11 +560,13 @@ footer.site-footer {
 /* ---------Template Candidat ---------------*/
 
 /*----- Formulaire ------ */
+
 span.error {
-    color:red;
+    color: red;
     margin-top: 5px;
     display: block;
 }
+
 h2.success {
     color: green;
     text-align: center;
@@ -536,6 +576,7 @@ h2.success {
     background-color: white;
     border-radius: 50px;
 }
+
 h2.success span {
     text-align: center;
     font-size: .5em;
@@ -544,6 +585,7 @@ h2.success span {
 }
 
 /* __Contact__ */
+
 #section_contact {
     background-image: url('./asset/img/background-pages.png');
     background-position: bottom;
@@ -552,6 +594,7 @@ h2.success span {
     text-align: center;
     padding: 200px 0 100px 0;
 }
+
 h1.h1-page-title {
     font-size: 4em;
     font-weight: bold;
@@ -559,6 +602,7 @@ h1.h1-page-title {
     position: relative;
     text-align: center;
 }
+
 h1.h1-page-title::before {
     content: '';
     position: absolute;
@@ -569,19 +613,19 @@ h1.h1-page-title::before {
     height: 3px;
     background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
 }
+
 form .champ {
     margin: 10px 0;
 }
+
 form label {
     display: block;
     margin-bottom: 7px;
     font-size: 1.2em;
     font-weight: bold;
 }
-form input[type=text],
-form input[type=email],
-form input[type=password],
-form textarea {
+
+form input[type=text], form input[type=email], form input[type=password], form textarea {
     outline: none;
     border: 1px solid #dedede;
     border-radius: 50px;
@@ -592,33 +636,36 @@ form textarea {
     font-weight: lighter;
     transition: .2s;
 }
-form input[type=text]:focus,
-form input[type=password]:focus,
-form input[type=email]:focus,
-form textarea:focus {
-    box-shadow: 0px 0px 4px 0px rgba(143,143,143,0.5);
--webkit-box-shadow: 0px 0px 4px 0px rgba(143,143,143,0.5);
--moz-box-shadow: 0px 0px 4px 0px rgba(143,143,143,0.5);
+
+form input[type=text]:focus, form input[type=password]:focus, form input[type=email]:focus, form textarea:focus {
+    box-shadow: 0px 0px 4px 0px rgba(143, 143, 143, 0.5);
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(143, 143, 143, 0.5);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(143, 143, 143, 0.5);
 }
+
 form textarea {
     font-family: 'Nunito', sans-serif;
     font-weight: 500;
     resize: vertical;
     height: 250px;
 }
+
 form .submit {
     margin: 30px 0;
 }
+
 form input[type=submit] {
     outline: none;
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
 }
+
 form input::placeholder {
     color: #b1b1b1;
     font-style: italic;
-/* Template A Propos */
+    /* Template A Propos */
+}
 
 /* .title-propos {
     -webkit-background-clip: text;
@@ -629,7 +676,7 @@ form input::placeholder {
     text-align: center;
 } */
 
-.container-title-text-propos{
+.container-title-text-propos {
     text-align: center;
     text-justify: auto;
     display: flex;
@@ -637,21 +684,17 @@ form input::placeholder {
     margin: 0 auto;
     padding: 0 15px;
     border: 30px solid;
-    border-image: linear-gradient(10deg,#FFF000, #FF6400) 10;
+    border-image: linear-gradient(10deg, #FFF000, #FF6400) 10;
     padding: 20px;
     margin-bottom: 50px;
     margin-top: 60px;
-
 }
 
-.image-a-propos{
+.image-a-propos {
     text-align: left;
 }
 
-
-
-
-.long-text-propos{
+.long-text-propos {
     justify-content: space-between;
     width: 90%;
     display: flex;
@@ -663,14 +706,13 @@ form input::placeholder {
     justify-content: center;
 }
 
-.long-text-a-propos{
+.long-text-a-propos {
     text-align: center;
     justify-content: center;
     align-items: center;
-    
 }
 
-.image-a-propos2{
+.image-a-propos2 {
     justify-content: space-between;
     width: 90%;
     display: flex;
@@ -679,7 +721,6 @@ form input::placeholder {
     padding: 50px 0;
     font-size: 25px;
 }
-
 
 /* .center-valeur {
     -webkit-background-clip: text;
@@ -690,6 +731,7 @@ form input::placeholder {
     text-align: center;
 
 } */
+
 .img-entretien {
     margin-bottom: 40px;
     text-align: center;
@@ -699,7 +741,6 @@ form input::placeholder {
     font-size: 18px;
     margin-bottom: 14px;
     font-style: italic;
-
 }
 
 /* .fleche-gauche {
@@ -707,7 +748,7 @@ form input::placeholder {
     margin-bottom: 50px;
 } */
 
-.fleche-center{
+.fleche-center {
     text-align: center;
 }
 
@@ -717,8 +758,7 @@ form input::placeholder {
     margin-left: 40px;
 }
 
-
-.title-principal{
+.title-principal {
     margin-left: 45px;
     font-size: 15px;
 }
@@ -729,6 +769,7 @@ form input::placeholder {
 
 .equipe {
     margin-top: 20px;
+    font-size: 20px;
 }
 
 /* .wrap img {
@@ -739,11 +780,12 @@ form input::placeholder {
     padding: 50px 0;
 } */
 
-
 /* Preset CV */
+
 .box-cv {
     padding: 10px;
 }
+
 .container-cv {
     width: 100%;
     max-width: 1000px;
@@ -751,26 +793,30 @@ form input::placeholder {
     padding: 15px;
     border: 1px solid #dedede;
     border-radius: 10px;
-    box-shadow: 0px 0px 9px -4px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px 0px 9px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 9px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 9px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 9px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 9px -4px rgba(0, 0, 0, 0.75);
 }
+
 .wrap-cv {
     width: 100%;
     max-width: 800px;
     margin: 50px auto;
 }
+
 .box-cv .head {
     padding: 15px;
     background-color: #FF6400;
     color: white;
     border-radius: 10px;
 }
+
 .box-cv .head-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .box-cv .head .user-avatar img {
     background-color: white;
     width: 150px;
@@ -778,19 +824,23 @@ form input::placeholder {
     border-radius: 100%;
     padding: 5px;
 }
+
 .box-cv .head .user-info h1 {
     font-size: 3em;
     font-weight: bold;
 }
+
 .box-cv .head .user-info h2 {
     font-size: 1.5em;
     font-weight: lighter;
 }
+
 .flex-cv {
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
 }
+
 h1.title-section-cv {
     font-size: 2em;
     font-weight: bold;
@@ -798,6 +848,7 @@ h1.title-section-cv {
     margin-bottom: 25px;
     position: relative;
 }
+
 h1.title-section-cv::before {
     content: '';
     position: absolute;
@@ -808,37 +859,128 @@ h1.title-section-cv::before {
     height: 5px;
     background-color: #FF6400;
 }
-.diplome, .formations {
+
+.diplome, .experience, .infos {
     padding-right: 15px;
     width: 50%;
 }
-.competences, .experience {
+.btn-cancel {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.btn-cancel a {
+    text-decoration: none;
+    color: #303030 !important;
+    padding: 10px 20px;
+    font-size: 1.2em;
+}
+.btn-cancel a:hover {
+    color: white !important;
+}
+
+.competences, .loisirs {
     padding-left: 15px;
     width: 50%;
 }
+
 .flex-cv h3 {
     font-size: 1.3em;
     word-break: break-all;
 }
+
 .btn-download {
     text-align: center;
     padding: 50px 0;
 }
+
 .btn-download a {
     text-decoration: none;
     color: #303030;
     font-size: 5em;
     transition: .2s;
 }
+
 .btn-download a:hover {
     color: black;
 }
+
 .btn-download a span {
     display: block;
     font-size: .4em;
 }
+
 .section-cv {
     padding: 0 20px;
+}
+
+/* TEMPLATE RECRUTEUR */
+
+#recruteur .welRecru h2 {
+    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    background-color: white;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid lightgrey;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 50px;
+    font-size: 30px;
+}
+
+#recruteur .listingCv {
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+    font-weight: 700;
+}
+
+#recruteur .welRecru span {
+    color: black;
+    font-style: oblique;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    border: #303030;
+}
+
+.headName {
+    border: #303030;
+    background-color: #d7d9f2;
+}
+
+th {
+    border: 1px solid 303030;
+    padding: 10px;
+    padding-right: 100px;
+    padding-left: 100px;
+    border: #4e4e4e;
+}
+
+th {
+    background-color: #d7d9f2;
+    border: #303030;
+}
+
+thead {
+    max-width: 100%;
+    height: 100%;
+    display: inline;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
 }
 
 /* ─── RESPONSIVE ────────────────────────────────────────── */
@@ -867,37 +1009,35 @@ h1.title-section-cv::before {
         margin-top: 40px;
         justify-content: center;
         /* width: 100%; */
-        /* display: flex;
+
+/* display: flex;
         flex-direction: column; */
-        /* max-width: 1440px; */
-        /* margin: 0 auto;
+
+/* max-width: 1440px; */
+
+/* margin: 0 auto;
         padding: 0 15px;
     } */
+
 /* } */
 
-
 @media only screen and (max-width: 1630px) {
-    .title-connect
-{
+    .title-connect {
         margin-top: 25px;
-        
     }
 }
 
 @media only screen and (max-width: 1630px) {
     .container-title-text-propos {
-        width: 1400px ;
+        width: 1400px;
     }
 }
 
 @media only screen and (max-width: 1580px) {
     .container-title-text-propos {
-        width: 1000px ;
+        width: 1000px;
     }
 }
-
-
-
 
 @media only screen and (max-width: 1475px) {
     .wrap {
@@ -919,7 +1059,6 @@ h1.title-section-cv::before {
     }
     .image-connexion img {
         width: 300px;
-
     }
     .flex-connexion {
         display: flex;
@@ -931,8 +1070,7 @@ h1.title-section-cv::before {
         justify-content: center;
         margin-top: 50px;
     }
-    .title-connect
-    {
+    .title-connect {
         padding: 70px;
     }
 }
@@ -953,10 +1091,11 @@ h1.title-section-cv::before {
 
 @media only screen and (max-width: 1150px) {
     .container-title-text-propos {
-        width: 800px ;
+        width: 800px;
         font-size: 15px;
     }
 }
+
 @media screen and (max-width: 1180px) {
     .widget_nav ul.menu {
         padding-bottom: 30px;
@@ -1047,6 +1186,7 @@ h1.title-section-cv::before {
         width: 100%;
     }
 }
+
 @media screen and (max-width: 1000px) {
     footer .flex {
         flex-direction: column;
@@ -1071,12 +1211,10 @@ h1.title-section-cv::before {
 
 @media only screen and (max-width: 940px) {
     .container-title-text-propos {
-        width: 700px ;
+        width: 700px;
         font-size: 7px;
-        
     }
 }
-
 
 @media screen and (max-width: 900px) {
     .site-header {
@@ -1098,48 +1236,46 @@ h1.title-section-cv::before {
 
 @media only screen and (max-width: 830px) {
     .container-title-text-propos {
-        width: 630px ;
+        width: 630px;
         font-size: 10px;
     }
     .long-text-a-propos {
         font-size: 19px;
-
     }
 }
 
 @media only screen and (max-width: 730px) {
     .container-title-text-propos {
-        width: 580px ;
+        width: 580px;
         font-size: 1px;
     }
     .long-text-a-propos {
         font-size: 15px;
-
     }
 }
 
 @media only screen and (max-width: 700px) {
     .container-title-text-propos {
-        width: 480px ;
+        width: 480px;
         font-size: 1px;
     }
     .long-text-a-propos {
         font-size: 15px;
     }
-    .but-principal img{
+    .but-principal img {
         width: 300px;
     }
 }
 
 @media only screen and (max-width: 600px) {
     .container-title-text-propos {
-        width: 440px ;
+        width: 440px;
         font-size: 1px;
     }
     .long-text-a-propos {
         font-size: 15px;
     }
-    .but-principal img{
+    .but-principal img {
         width: 300px;
     }
     .title-propos {
@@ -1147,16 +1283,15 @@ h1.title-section-cv::before {
     }
 }
 
-
 @media only screen and (max-width: 544px) {
     .container-title-text-propos {
-        width: 400px ;
+        width: 400px;
         font-size: 1px;
     }
     .long-text-a-propos {
         font-size: 15px;
     }
-    .but-principal img{
+    .but-principal img {
         width: 200px;
     }
     .title-propos {
@@ -1167,10 +1302,8 @@ h1.title-section-cv::before {
     }
 }
 
-
-
 @media only screen and (max-width: 530px) {
-    .image-inscription  img {
+    .image-inscription img {
         justify-content: center;
         align-items: center;
         width: 40%;
@@ -1196,82 +1329,68 @@ h1.title-section-cv::before {
     }
 }
 
-
-
 @media only screen and (max-width: 500px) {
-    .image-inscription  img {
+    .image-inscription img {
         justify-content: center;
         align-items: center;
         width: 70%;
     }
     input[type=text], input[type=email], input[type=password], textarea {
-       
         width: 80%;
     }
-    
     input[type=submit] {
-        
         width: 80%;
-        }
+    }
 }
-
 
 @media only screen and (max-width: 454px) {
     .container-title-text-propos {
-        width: 300px ;
+        width: 300px;
         font-size: 1px;
     }
     .image-a-propos img {
         width: 100px;
-      
     }
-
     .long-text-a-propos {
         font-size: 13px;
         text-align: center;
         justify-content: center;
     }
-    .but-principal img{
+    .but-principal img {
         width: 100px;
         text-align: center;
         justify-content: center;
         align-items: center;
         margin-left: -21px;
     }
-    .title-principal{
+    .title-principal {
         text-align: center;
         justify-content: center;
         align-items: center;
         margin-left: px;
         font-size: 14px;
     }
-
     .title-propos {
         font-size: 20px;
     }
     .img-entretien img {
         width: 100px;
     }
-    .but-equipe img{
+    .but-equipe img {
         width: 100px;
     }
-
 }
 
-
 @media only screen and (max-width: 450px) {
-    .image-inscription  img {
+    .image-inscription img {
         justify-content: center;
         align-items: center;
         width: 50%;
     }
 }
 
-
-
-
 @media only screen and (max-width: 420px) {
-    .image-inscription  img {
+    .image-inscription img {
         margin-left: -99px;
         margin-top: 29px;
         width: 100px;
@@ -1279,22 +1398,18 @@ h1.title-section-cv::before {
 }
 
 @media screen and (max-width: 410px) {
-    .flex-connexion  img {
+    .flex-connexion img {
         width: 65%;
         padding-bottom: 20%;
     }
 }
 
-
-
 @media only screen and (max-width: 380px) {
-    .image-inscription  img {
+    .image-inscription img {
         margin-left: -20px;
         width: 60%;
     }
 }
-
-
 
 @media screen and (max-width: 350px) {
     .widget_nav .logo img {
@@ -1313,13 +1428,13 @@ h1.title-section-cv::before {
 
 @media only screen and (max-width: 345px) {
     .container-title-text-propos {
-        width: 260px ;
+        width: 260px;
         font-size: 1px;
     }
     .long-text-a-propos {
         font-size: 13px;
     }
-    .but-principal img{
+    .but-principal img {
         width: 100px;
         margin-left: -19px;
     }
@@ -1329,7 +1444,7 @@ h1.title-section-cv::before {
     .img-entretien img {
         width: 100px;
     }
-    .title-principal{
+    .title-principal {
         text-align: center;
         justify-content: center;
         align-items: center;
@@ -1337,9 +1452,6 @@ h1.title-section-cv::before {
         font-size: 14px;
     }
 }
-
-
-
 
 /* ─────────────────────────────────────────────────────────
 /* ------------------- C S S   E N D  -----------------------
