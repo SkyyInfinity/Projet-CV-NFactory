@@ -18,7 +18,14 @@ get_header();
         <p><i class="fas fa-envelope"></i> Votre email : <span><?= $user->user_email; ?></span></p>
         <p><i class="fas fa-clock"></i> Premiére connexion le: <span><?= $user->user_registered; ?></span></p>
         <div class="btn-recruteur">
-            <a class="btn-secondary" href="<?= esc_url(home_url('recruteur')); ?>">Page pour les recruteurs</a>
+            <?php
+            $roleRecruteur = get_role('contributor');
+            $currentRole = $user->caps;
+            if($currentRole == array('contributor' => 1)): ?>
+                <a class="btn-secondary" href="<?= esc_url(home_url('recruteur')); ?>">Mon espace</a>
+            <?php else: ?>
+                <a class="btn-secondary" href="<?= esc_url(home_url('candidat')); ?>">Créer un CV</a>
+            <?php endif; ?>
         </div>
     </div>
 

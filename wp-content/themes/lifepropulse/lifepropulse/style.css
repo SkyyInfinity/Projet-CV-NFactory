@@ -1091,6 +1091,27 @@ h1.title-section-cv::before {
     font-size: 30px;
 }
 
+/* __PROFIL__ */
+.profil-page {
+    padding: 200px 0;
+    text-align: center;
+}
+.info-profil {
+    text-align: center;
+}
+.info-profil p {
+    line-height: 1.2em;
+    font-size: 1.2em;
+}
+.btn-recruteur {
+    margin: 40px 0;
+}
+.btn-recruteur a {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 1630px) {
     .title-connect {
         margin-top: 25px;
