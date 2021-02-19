@@ -104,9 +104,9 @@ if (!empty($_GET['id'])) {
                                             if(!empty($single_experience[0]['date'])){ $dateTSD = strtotime($single_experience[0]['date']); echo date('d/m/Y', $dateTSD);} if(!empty($single_diplome[0])){ echo ' - ' . mb_ucfirst($single_diplome[0]['diplome_type']) . ' ' . mb_ucfirst($single_diplome[0]['diplome_name']);};
                                         }; ?><span><br><?php if (!empty($single_diplome[0])) {
                                                         echo mb_ucfirst($single_diplome[0]['etablissement']);
-                                                    }; ?></span> (<?php if (!empty($single_diplome[0])) {
-                                                                    echo $single_diplome[0]['diplome_duree'];
-                                                                }; ?>)</h3>
+                                                    }; ?></span> <?php if (!empty($single_diplome[0])) {
+                                                                    echo '(' . $single_diplome[0]['diplome_duree'] . ')';
+                                                                }; ?></h3>
                                 </li>
                             </ul>
                         </div>
@@ -134,9 +134,9 @@ if (!empty($_GET['id'])) {
                                             echo date('d/m/Y', $dateTSE) . ' - ' . $single_experience[0]['entreprise'];
                                         }; ?><span><br> <?php if (!empty($single_experience[0])) {
                                                         echo $single_experience[0]['mission'];
-                                                    }; ?></span> (<?php if (!empty($single_experience[0])) {
-                                                        echo $single_experience[0]['duree'];
-                                                    }; ?> ans)</h3>
+                                                    }; ?></span> <?php if (!empty($single_experience[0])) {
+                                                        echo '(' . $single_experience[0]['duree'] . ' ans)';
+                                                    }; ?></h3>
                                 </li>
                             </ul>
                         </div>
