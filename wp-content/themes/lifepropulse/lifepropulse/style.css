@@ -87,8 +87,12 @@ body {
     transition: .2s;
 }
 
+/* Conflict */
 .btn-color:hover {
     opacity: .7;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 /* ─── LAYOUT ────────────────────────────────────────────── */
@@ -560,11 +564,11 @@ footer.site-footer {
 }
 
 /* ---------Template Candidat ---------------*/
+/* Formulaire */
 
 /*----- Formulaire ------ */
-
-span.error {
-    color: red;
+.error {
+    color:red;
     margin-top: 5px;
     display: block;
 }
@@ -668,7 +672,6 @@ form input::placeholder {
     color: #b1b1b1;
     font-style: italic;
 }
-
 /* Template A Propos */
 
 /* .title-propos {
@@ -724,6 +727,158 @@ form input::placeholder {
     align-items: center;
     padding: 50px 0;
     font-size: 25px;
+}
+
+/*main {
+    height: 100vh;
+    width: 100%;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+
+.wrap2 {
+    width: 100%;
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0 15px;
+}*/
+
+/* 
+.imgCandidat {
+    background-image: url(./asset/img/background-pages.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.form {
+    background: #fff;
+    text-align: center;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 1rem;
+    margin-top: 25px;
+    z-index: 99;
+}
+!
+.form--header-container {
+    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
+    color: rgb(0, 0, 0);
+    height: 6rem;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.form--header-title {
+    font-size: 1.4rem;
+}
+
+.form--header-text {
+    padding: 0.5rem 0;
+}
+
+input[type="text"] {
+    padding: 0.8rem;
+    margin: auto;
+    margin-top: 0.5rem;
+    width: 20rem;
+    display: block;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid #bdbdbb;
+} */
+
+.form__btn {
+    background: #fff;
+    color: #333;
+    outline: none;
+    border: 3px solid #333;
+    padding: 0.5rem 0.7rem;
+    width: 7rem;
+    margin: 1rem auto;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form__btn:hover {
+    background: #333;
+    color: #fff;
+    transition: 0.4s;
+}
+
+/* .form--message-text {
+    width: 25rem;
+    background: #fff;
+    color: #444;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+    animation: fadeIn 0.8s;
+    border-radius: 1rem;
+    margin-top: 50px;
+}  */
+
+.form_btn {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 20px;
+    border: 1px solid #b7b7b7;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: rgba(0,142,198,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(252,252,252,1);
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.candidat main{
+    padding-top: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    display : -webkit-box;
+    display : -ms-flexbox;
+    display : flex;
+    -webkit-box-orient : horizontal;
+    -webkit-box-direction : normal;
+    -ms-flex-direction : row;
+    flex-direction : row;
+    -ms-flex-wrap : wrap;
+    flex-wrap : wrap;
+    -webkit-box-pack : center;
+    -ms-flex-pack : center;
+    justify-content : center;
+}
+
+.candidat .box{
+    height: 600px;
+    width: 33.331%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.candidat .box h1{
+    font-size: 1.5em;
 }
 
 /* .center-valeur {
@@ -935,207 +1090,6 @@ h1.title-section-cv::before {
     margin-bottom: 50px;
     font-size: 30px;
 }
-
-#recruteur .listingCv {
-    font-size: 36px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 80px;
-    font-weight: 700;
-}
-
-#recruteur .welRecru span {
-    color: black;
-    font-style: oblique;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-}
-
-.table {
-    border: #303030;
-}
-
-.headName {
-    border: #303030;
-    background-color: #d7d9f2;
-}
-
-th {
-    border: 1px solid 303030;
-    padding: 10px;
-    padding-right: 100px;
-    padding-left: 100px;
-    border: #4e4e4e;
-}
-
-th {
-    background-color: #d7d9f2;
-    border: #303030;
-}
-
-thead {
-    max-width: 100%;
-    height: 100%;
-    display: inline;
-}
-
-table {
-    border-collapse: collapse;
-    border: 2px solid black;
-    letter-spacing: 1px;
-    font-family: sans-serif;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-}
-
-/* __404__ */
-
-.error-404 {
-    padding: 25px 0px;
-    text-align: center;
-    position: relative;
-    background-image: url('./asset/img/background-pages.png');
-    background-position: bottom;
-    background-repeat: no-repeat;
-}
-
-.error-404 .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: default;
-}
-
-h1.title-NotFound {
-    padding: 15px;
-    font-size: 15em;
-    font-weight: bold;
-    color: #303030;
-    background: linear-gradient(90deg, #FFF000 0%, #FF6400 100%);
-    pointer-events: none;
-}
-
-p.info-NotFound {
-    padding: 10px;
-    font-size: 2em;
-    background-color: #303030;
-    color: white;
-    margin-top: 15px;
-    pointer-events: none;
-}
-
-.error-404 .btn {
-    margin: 50px 0;
-}
-
-.error-404 .btn a {
-    font-size: 1.5em;
-    padding: 10px 25px;
-    text-decoration: none;
-}
-
-.error-404 .flex img {
-    width: 40%;
-    pointer-events: none;
-}
-
-/* __ RESET PASSWORD __ */
-
-.forgot-psswd {
-    margin-bottom: 15px !important;
-    text-align: center;
-}
-
-.forgot-psswd a {
-    text-decoration: none;
-    text-underline-offset: 1px;
-    transition: .2s;
-}
-
-.forgot-psswd a:hover {
-    text-decoration: underline;
-}
-
-.forgot-box {
-    padding: 250px 0 230px 0;
-}
-
-.forgot-box form {
-    text-align: center;
-}
-
-.forgot-box form .forgot-info {
-    font-style: italic;
-    margin-bottom: 10px;
-    color: #303030;
-}
-
-.forgot-box form input[type=email] {
-    width: auto;
-}
-
-.forgot-box form .submit input {
-    margin-right: 5px;
-}
-
-.forgot-box form .submit a {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #303030;
-    margin-left: 5px;
-}
-
-.forgot-box form .submit a:hover {
-    color: white;
-}
-
-/* __PROFIL__ */
-.profil-page {
-    padding: 200px 200px;
-}
-.info-profil {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.info-profil p {
-    font-size: 1.6em;
-    line-height: 1.2em;
-}
-.info-profil p span {
-    font-weight: bold;
-}
-.btn-recruteur {
-    margin: 50px 0;
-}
-.btn-recruteur a {
-    font-size: 1.2em;
-    padding: 10px 20px;
-    text-decoration: none;
-}
-
-/* ─── RESPONSIVE ────────────────────────────────────────── */
-
-
-/* @media only screen and (max-width: 1630px) {
-    .flex-connexion{
-        margin-top: 40px;
-        justify-content: center;
-        /* width: 100%; */
-
-/* display: flex;
-        flex-direction: column; */
-
-/* max-width: 1440px; */
-
-/* margin: 0 auto;
-        padding: 0 15px;
-    } */
-
-/* } */
 
 @media only screen and (max-width: 1630px) {
     .title-connect {
