@@ -50,9 +50,19 @@
 						<li><a class="btn-secondary" href='<?php echo bloginfo('url');?>/inscription'>S'inscrire</a></li>
 						<li><a class="btn-primary" href='<?php echo bloginfo('url');?>/connexion'>Se connecter</a></li>
 					<?php else: ?>
-						<li><a class="btn-secondary" href='<?php echo bloginfo('url');?>/profil'>Mon profil</a></li>
+						<?php
+						$roleRecruteur = get_role('contributor');
+						$currentRole = $user->caps;
+						if($currentRole == array('contributor' => 1)): ?>
+							<li><a class="btn-secondary" href='<?php echo bloginfo('url');?>/recruteur'>Mon espace</a></li>
+						<?php else: ?>
+							<li><a class="btn-secondary" href='<?php echo bloginfo('url');?>/profil'>Mon profil</a></li>
+						<?php endif; ?>
 						<li><a class="btn-primary" href='<?php echo bloginfo('url');?>/logout'>Se déconnecter</a></li>
 					<?php endif; ?>
+					
+					
+				
 				</ul>
 				<div class="burger" id="js_burger">
 					<div class="bar bar-top"></div>

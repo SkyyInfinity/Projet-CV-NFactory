@@ -23,26 +23,39 @@ if (!empty($_POST['submitted'])) {
     $status = 'Nouveau';
     $createdAt = date("Y-m-d H:i:s");
 
+    
+
     if (count($errors) == 0) {
-        global $wpdb;
-        $wpdb->query(
-            $wpdb->prepare(
-                "
-                INSERT INTO messages
-                (nom, prenom, email, sujet, message, created_at, status)
-                VALUES (%s, %s, %s, %s, %s, %s, %s)
-                ",
-                array(
-                    $nom,
-                    $prenom,
-                    $email,
-                    $sujet,
-                    $message,
-                    $createdAt,
-                    $status
-                )
-            )
-        );
+
+        $to = 'dylan.hautecoeur@gmail.com';
+        $subject = $sujet;
+        $sender = $email;
+        $theMessage = $message . '<br>Le ' . $createdAt;
+        $headers[] = 'MIME-Version: 1.0' . "\r\n";
+        $headers[] = 'Content-type: text/html; charset=utf-8' . "\r\n";
+        $headers[] = "X-Mailer: PHP \r\n";
+        $headers[] = 'From: '.$sender.' < '.$email.'>' . "\r\n";
+        $mail = wp_mail($to, $subject, $theMessage, $headers);
+    //     global $wpdb;
+    //     $wpdb->query(
+    //         $wpdb->prepare(
+    //             "
+    //             INSERT INTO messages
+    //             (nom, prenom, email, sujet, message, created_at, status)
+    //             VALUES (%s, %s, %s, %s, %s, %s, %s)
+    //             ",
+    //             array(
+    //                 $nom,
+    //                 $prenom,
+    //                 $email,
+    //                 $sujet,
+    //                 $message,
+    //                 $createdAt,
+    //                 $status
+    //             )
+    //         )
+    //     );
+
         $success = true;
         header('refresh:5;url=' . esc_url(home_url('/')));
     }
